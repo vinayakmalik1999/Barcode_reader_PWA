@@ -1,6 +1,6 @@
 import React, { Component, useState, useEffect } from 'react'
 import axios from 'axios'
-
+import { Link } from 'react-router-dom'
 export default function UserPage(props) {
   // Setting initial state
   const initialUserState = {
@@ -38,7 +38,9 @@ for(var i=0;i<user.length;i++){
     <div>
     <p>input:
               <input type ="text" name = "email"></input>
-              <button class = "button">scan</button>
+              <Link to ="/contact">
+            <button class = "button">scan</button>
+            </Link>
           </p>
     Loading......
     </div>
@@ -46,7 +48,9 @@ for(var i=0;i<user.length;i++){
     <div className="container">
     <p>input:
               <input type ="text" name = "email"></input>
+                <Link to ="/contact">
               <button class = "button">scan</button>
+              </Link>
           </p>
 
       <table>

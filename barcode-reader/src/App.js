@@ -9,6 +9,7 @@ import {
 import Home from "./Home";
 import Stuff from "./Stuff";
 import Contact from "./Contact";
+
 function App() {
     return (
         <Router>

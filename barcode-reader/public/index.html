@@ -22,6 +22,23 @@
     <title>Barcode Reader</title>
   </head>
   <body>
+
+<script src="https://demo.dynamsoft.com/dbr_wasm/js/dbr-6.4.1.1.min.js"></script>
+<script>
+  dynamsoft.dbrEnv.resourcesPath = 'https://demo.dynamsoft.com/dbr_wasm/js';
+  dynamsoft.dbrEnv.onAutoLoadWasmSuccess = function () {
+    window.reader = new dynamsoft.BarcodeReader();
+    window.dynamsoft = dynamsoft;
+    document.getElementById('anim-loading').style.display = 'none';
+  };
+  dynamsoft.dbrEnv.onAutoLoadWasmError = function (ex) {
+    document.getElementById('anim-loading').style.display = 'none';
+    alert('Fail to load the wasm file.');
+  };
+  dynamsoft.dbrEnv.bUseWorker = true;
+  //https://www.dynamsoft.com/CustomerPortal/Portal/TrialLicense.aspx
+  dynamsoft.dbrEnv.licenseKey = "t0126lQMAAAtkaS4RsBro8bv6B0biOf/lSkyG55lNJIk5VKq+DRDGGKaKgLFSx9+lxzVbV1xU3lu276egcYuggc+bwunAfq/wzspbiTTMaZjTMKdhTsNMw0zDTMNMw0zDLMMswyzDLMNc3xo/UZuNRnUTqBq+1b/Zo1FqcQHwvbXt";
+</script>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
     <!--
