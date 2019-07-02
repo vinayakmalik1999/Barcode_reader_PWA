@@ -8,8 +8,11 @@ class UserPage extends Component {
   constructor(props) {
       super(props);
       this.state = {
-        user:[]
+        user:[],
+        formValue:''
       }
+      this.handleChange = this.handleChange.bind(this);
+      this.handleSubmit = this.handleSubmit.bind(this);
     }
 
 
@@ -25,22 +28,47 @@ class UserPage extends Component {
   });
 }
 
+handleSubmit(event){
+  event.preventDefault();
+if(this.state.formValue === ''){
+  alert("please enter a value");
+return;
+}
 
+  axios.post('https://kt-dev.outsystemscloud.com/PWABack/rest/BarCode/Post',
+  {
+    Code:this.state.formValue
+  })
+     .then(res => {
+       console.log(res);
+       console.log(res.data);
+     })
+     .catch(error => {
+       console.log(error);
+     })
+
+
+}
+handleChange(event){
+  this.setState({formValue:event.target.value})
+}
 
 
   // Return a table with some data from the API.
   render(){
-console.log(this.state)
+
 
   return  (
     <div className="container">
-    <p>input:
-
-              <input type ="text" name = "email"></input>
+    input:
+            <form onSubmit ={this.handleSubmit}>
+              <input type ="string" value = {this.state.formValue} onChange={this.handleChange}/>
+              <button type="submit">Add</button>
+              </form>
                 <Link to ="/contact">
-              <button className = "button">scan</button>
+              <button className = "button">Scan</button>
               </Link>
-          </p>
+
 
       <table>
         <thead>
@@ -51,17 +79,16 @@ console.log(this.state)
           </tr>
         </thead>
         <tbody>
-        <tr>
+
     {this.state.user.map((users, index)=> (
-        <td key ={index}>{users.Id}</td>
+      <tr key ={index}>
+        <td >{users.Id}</td>
+        <td >{users.Code}</td>
+        <td >{users.createdDate}</td>
+        </tr>
     ))}
-    {this.state.user.map((users, index)=> (
-        <td key ={index}>{users.Code}</td>
-    ))}
-    {this.state.user.map((users, index)=> (
-        <td key ={index}>{users.createdDate}</td>
-    ))}
-            </tr>
+
+
         </tbody>
       </table>
     </div>
