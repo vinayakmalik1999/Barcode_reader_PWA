@@ -34,7 +34,7 @@ if(this.state.formValue === ''){
   alert("please enter a value");
 return;
 }
-
+//send data to API
   axios.post('https://kt-dev.outsystemscloud.com/PWABack/rest/BarCode/Post',
   {
     Code:this.state.formValue
