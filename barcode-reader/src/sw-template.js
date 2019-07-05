@@ -15,7 +15,7 @@ workbox.routing.registerNavigationRoute('/index.html', {
     });
 
 workbox.routing.registerRoute(
-      /\.(?:png|gif|jpg|jpeg)$/,
+      /\.(?:png|gif|jpg|jpeg|webp|svg)$/,
       workbox.strategies.cacheFirst({
         cacheName: 'images',
         plugins: [
@@ -31,3 +31,7 @@ workbox.routing.registerRoute(
     console.log('Workbox could not be loaded. No Offline support');
   }
 }
+workbox.routing.registerRoute(
+  'https://kt-dev.outsystemscloud.com/PWABack/rest/BarCode/GetList',
+  new workbox.strategies.StaleWhileRevalidate(),
+);
