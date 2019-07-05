@@ -3,15 +3,14 @@
   "name": "Barcode Reader PWA",
   "description": "A quirky barcode app",
   "icons": [
-    {
-      "src": "favicon.ico",
-      "sizes": "512x512 24x24 16x16",
-      "type": "image/x-icon"
-    },
-    {"src": "./barcode.png",
-    "sizes": "192x192 512x512",
+    {"src": "./barcode192x192.png",
+    "sizes": "192x192",
     "type": "image/png"
-    }
+  },
+  {"src": "./barcode512x512.png",
+  "sizes": "512x512",
+  "type": "image/png"
+  }
   ],
   "start_url": "./index.html",
   "display": "standalone",
