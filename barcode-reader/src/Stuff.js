@@ -48,7 +48,8 @@ return;
        console.log(res.data);
      })
      .catch(error => {
-       console.log(error);
+       navigator.serviceWorker.controller.postMessage(this.state.formValue)
+       console.log("Offline sending data to SW");
      })
 
 
