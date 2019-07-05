@@ -35,3 +35,14 @@ workbox.routing.registerRoute(
   'https://kt-dev.outsystemscloud.com/PWABack/rest/BarCode/GetList',
   new workbox.strategies.NetworkFirst(),
 );
+
+//message recieve handler
+self.addEventListener('message', function (event) {
+  console.log('form data', event.data)
+  if (event.data.hasOwnProperty('form_data')) {
+    // receives form data from script.js upon submission
+    form_data = event.data.form_data
+    console.log('read form data')
+  }
+  else{console.log('random shit posted')}
+})
