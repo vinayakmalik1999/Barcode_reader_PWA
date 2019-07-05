@@ -33,5 +33,5 @@ workbox.routing.registerRoute(
 }
 workbox.routing.registerRoute(
   'https://kt-dev.outsystemscloud.com/PWABack/rest/BarCode/GetList',
-  new workbox.strategies.StaleWhileRevalidate(),
+  new workbox.strategies.NetworkFirst(),
 );

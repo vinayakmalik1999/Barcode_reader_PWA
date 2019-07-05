@@ -24,7 +24,11 @@ class UserPage extends Component {
     this.setState({user:response.data});
   })
   .catch(error => {
-    console.log(error);
+    return caches.match('https://kt-dev.outsystemscloud.com/PWABack/rest/BarCode/GetList')
+    .then(response =>{
+      this.setState({user:response.data});
+    })
+
   });
 }
 
