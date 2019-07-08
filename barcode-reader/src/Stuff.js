@@ -58,13 +58,19 @@ handleChange(event){
   this.setState({formValue:event.target.value})
 }
 
-
+ offlineBanner(){
+  if(!navigator.onLine){
+    return <p> you are offline </p>
+  }
+}
   // Return a table with some data from the API.
   render(){
 
 
   return  (
+
     <div className="container">
+      <offlineBanner/>
     input:
             <form onSubmit ={this.handleSubmit}>
               <input type ="string" value = {this.state.formValue} onChange={this.handleChange}/>

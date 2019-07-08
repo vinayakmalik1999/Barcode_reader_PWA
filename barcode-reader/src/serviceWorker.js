@@ -40,11 +40,18 @@ export function register(config) {
 
         // Add some additional logging to localhost, pointing developers to the
         // service worker/PWA documentation.
-        navigator.serviceWorker.ready.then(() => {
+        navigator.serviceWorker.ready.then((reg) => {
           console.log(
             'This web app is being served cache-first by a service ' +
               'worker. To learn more, visit https://bit.ly/CRA-PWA'
           );
+          return reg.sync.register('formDataSync').then(() =>{
+        console.log("sync registered")
+      })
+      .catch(() =>{
+        //sync failed
+        console.log("sync error")
+      })
         });
       } else {
         // Is not localhost. Just register service worker
