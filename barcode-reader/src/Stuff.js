@@ -1,7 +1,10 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
-
+import Table from 'react-bootstrap/Table'
+import Button from 'react-bootstrap/Button'
+import OfflineBanner from './OfflineBanner.js'
+import InputGroup from 'react-bootstrap/InputGroup'
 class UserPage extends Component {
   // Setting initial state
 
@@ -58,11 +61,7 @@ handleChange(event){
   this.setState({formValue:event.target.value})
 }
 
- offlineBanner(){
-  if(!navigator.onLine){
-    return <p> you are offline </p>
-  }
-}
+
   // Return a table with some data from the API.
   render(){
 
@@ -70,18 +69,19 @@ handleChange(event){
   return  (
 
     <div className="container">
-      <offlineBanner/>
-    input:
+<OfflineBanner/>
+
             <form onSubmit ={this.handleSubmit}>
               <input type ="string" value = {this.state.formValue} onChange={this.handleChange}/>
-              <button type="submit">Add</button>
+              <Button type="submit" variant="light">Add</Button> 
+              <Link to ="/contact">
+            <Button variant="light">Scan</Button>
+            </Link>
               </form>
-                <Link to ="/contact">
-              <button className = "button">Scan</button>
-              </Link>
 
 
-      <table>
+
+  <Table striped bordered hover variant="dark">
         <thead>
           <tr>
             <th>ID</th>
@@ -101,7 +101,7 @@ handleChange(event){
 
 
         </tbody>
-      </table>
+      </Table>
     </div>
   )
 }
