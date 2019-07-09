@@ -1,11 +1,15 @@
 import React, { Component } from "react";
-
+import Container from 'react-bootstrap/Container'
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
+import Button from 'react-bootstrap/Button'
 class Contact extends Component {
-  
+
   render() {
     return (
       <div>
-      <input id="uploadImage" type="file" accept="image/bmp,image/jpeg,image/png,image/gif" onChange={this.onChanged}/>
+       <Button variant="primary">Primary</Button>
+
         </div>
       );
     }

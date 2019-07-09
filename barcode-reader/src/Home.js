@@ -1,13 +1,27 @@
 import React, { Component } from "react";
 import { Link } from 'react-router-dom'
+import Button from 'react-bootstrap/Button'
+import ControlledCarousel from './ControlledCarousel.js'
 class Home extends Component {
   render() {
     return (
-      <Link to ="/stuff">
+
+
       <div>
-        <h2>OUTBOUND</h2>
-        
-      </div></Link>
+      <ControlledCarousel/>
+      <Link to ="/stuff">
+  <Button variant="primary" size="lg" block>
+    <h1>List Page</h1>
+  </Button>
+  <Button variant="secondary" size="lg" block>
+  <h1>OUTBOUND</h1>
+    </Button>
+    </Link>
+</div>
+
+
+
+
 
 
 
