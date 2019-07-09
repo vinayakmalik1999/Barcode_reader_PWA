@@ -11,12 +11,13 @@ class Home extends Component {
       <ControlledCarousel/>
       <Link to ="/stuff">
   <Button variant="primary" size="lg" block>
-    <h1>List Page</h1>
+    <h1>BarcodeList</h1>
   </Button>
-  <Button variant="secondary" size="lg" block>
-  <h1>OUTBOUND</h1>
-    </Button>
     </Link>
+  <Button variant="secondary" size="lg" block>
+  <h1>BarcodeScanner</h1>
+    </Button>
+
 </div>
 
 
