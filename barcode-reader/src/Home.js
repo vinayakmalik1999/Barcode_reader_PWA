@@ -13,14 +13,16 @@ class Home extends Component {
       <ControlledCarousel/>
 
       <ListGroup  defaultActiveKey="#link1">
-        <Link to ="/stuff">
+      <Link to ="/stuff">
+      <ListGroup.Item action variant="dark">
+   <h1>BarcodeList</h1>
+      </ListGroup.Item>
+      </Link>
+        <Link to ="/contact">
          <ListGroup.Item action variant="dark" >
         <h1>BarcodeScanner</h1>
          </ListGroup.Item>
          </Link>
-         <ListGroup.Item action variant="dark">
-      <h1>BarcodeList</h1>
-         </ListGroup.Item>
 
        </ListGroup>
 

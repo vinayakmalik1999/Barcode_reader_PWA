@@ -32,7 +32,7 @@ class ControlledCarousel extends React.Component {
         <Carousel.Item>
           <img
             className="d-block w-100"
-            src="https://www.w3schools.com/bootstrap/la.jpg"
+            src="https://www.wallpaperflare.com/static/77/154/473/server-room-lights-dark-wallpaper.jpg"
             alt="First slide"
           />
           <Carousel.Caption>
@@ -43,7 +43,7 @@ class ControlledCarousel extends React.Component {
         <Carousel.Item>
           <img
             className="d-block w-100"
-            src="https://www.w3schools.com/bootstrap/chicago.jpg"
+            src="https://d2v9y0dukr6mq2.cloudfront.net/video/thumbnail/Vfv9BDZagiltwcyiq/videoblocks-big-empty-warehouse_rkwfj2y5tl_thumbnail-full01.png"
             alt="Second slide"
           />
 
@@ -55,7 +55,8 @@ class ControlledCarousel extends React.Component {
         <Carousel.Item>
           <img
             className="d-block w-100"
-            src="https://www.w3schools.com/bootstrap/ny.jpg"
+            src="        https://www.commercialpropertyguide.com.au/images/blog-cropped/static/images/blog/cpg-warehouse-003.jpg
+"
             alt="Third slide"
           />
 

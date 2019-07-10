@@ -10,7 +10,8 @@ class Contact extends Component {
     return (
       <div>
       <OfflineBanner/>
-       <Button variant="primary">Primary</Button>
+
+       <Button variant="primary">ADD</Button>
 
         </div>
       );
