@@ -12,7 +12,8 @@ class UserPage extends Component {
       super(props);
       this.state = {
         user:[],
-        formValue:''
+        formValue:'',
+        offlineSubmitValue:''
       }
       this.handleChange = this.handleChange.bind(this);
       this.handleSubmit = this.handleSubmit.bind(this);
@@ -49,10 +50,14 @@ return;
      .then(res => {
        console.log(res);
        console.log(res.data);
+       this.setState({formValue:''})
+       window.location.reload();
      })
      .catch(error => {
        navigator.serviceWorker.controller.postMessage(this.state.formValue)
        console.log("Offline sending data to SW");
+       this.setState({formValue:''})
+       
      })
 
 
@@ -73,7 +78,7 @@ handleChange(event){
 
             <form onSubmit ={this.handleSubmit}>
               <input type ="string" value = {this.state.formValue} onChange={this.handleChange}/>
-              <Button type="submit" variant="light">Add</Button> 
+              <Button type="submit" variant="light">Add</Button>
               <Link to ="/contact">
             <Button variant="light">Scan</Button>
             </Link>
