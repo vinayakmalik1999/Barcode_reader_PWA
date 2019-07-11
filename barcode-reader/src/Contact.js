@@ -4,12 +4,15 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Button from 'react-bootstrap/Button'
 import OfflineBanner from './OfflineBanner.js'
+import { Offline, Online } from 'react-detect-offline'
 class Contact extends Component {
 
   render() {
     return (
       <div>
-      <OfflineBanner/>
+      <Offline>
+        <OfflineBanner/>
+        </Offline>
 
        <Button variant="primary">ADD</Button>
 

@@ -3,13 +3,16 @@ import { Link } from 'react-router-dom'
 import ListGroup from 'react-bootstrap/ListGroup'
 import ControlledCarousel from './ControlledCarousel.js'
 import OfflineBanner from './OfflineBanner.js'
+import { Offline, Online } from 'react-detect-offline'
 class Home extends Component {
   render() {
     return (
 
 
       <div>
-      <OfflineBanner/>
+      <Offline>
+        <OfflineBanner/>
+        </Offline>      
       <ControlledCarousel/>
 
       <ListGroup  defaultActiveKey="#link1">
