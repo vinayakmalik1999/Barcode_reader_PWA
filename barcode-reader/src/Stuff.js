@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+  import React, { Component } from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
 import Table from 'react-bootstrap/Table'
@@ -6,6 +6,7 @@ import Button from 'react-bootstrap/Button'
 import OfflineBanner from './OfflineBanner.js'
 import InputGroup from 'react-bootstrap/InputGroup'
 import { Offline, Online } from 'react-detect-offline'
+import db from './dexieDB.js'
 
 class UserPage extends Component {
   // Setting initial state
@@ -17,7 +18,8 @@ class UserPage extends Component {
         formValue:'',
         offlineUser:[],
         resValue:'',
-        offlineSubmitValue:''
+        offlineSubmitValue:'',
+        iDB:{}
       }
       this.handleChange = this.handleChange.bind(this);
       this.handleSubmit = this.handleSubmit.bind(this);
@@ -33,9 +35,7 @@ class UserPage extends Component {
   })
   .catch(error => {
     return caches.match('https://kt-dev.outsystemscloud.com/PWABack/rest/BarCode/GetList')
-    .then(response =>{
-      this.setState({user:response.data});
-    })
+
 
   });
 }
@@ -61,9 +61,7 @@ return;
          this.setState({user:response.data});
        })
        .catch(error => {
-         return caches.match('https://kt-dev.outsystemscloud.com/PWABack/rest/BarCode/GetList')
-         .then(response =>{
-           this.setState({user:response.data});
+         console.log(error)
          })
 
        });
@@ -71,10 +69,24 @@ return;
 
      })
      .catch(error => {
-       navigator.serviceWorker.controller.postMessage(this.state.formValue)
+       var pushValues = []
+        navigator.serviceWorker.controller.postMessage(this.state.formValue)
+
        console.log("Offline sending data to SW");
        console.log(this.state.offlineSubmitValue);
+     db.table('formValues').add({Code:this.state.offlineSubmitValue}).then(() =>{
+      db.formValues.get(1, (res) =>{
+        pushValues.push({Id:res.id,Code:res.Code})
+        console.log(pushValues)
+      })
+    }).then(() => {
+        console.log(pushValues)
+        this.setState({offlineUser:pushValues})
+      })
+
+
        this.setState({formValue:''})
+
      })
 
 
