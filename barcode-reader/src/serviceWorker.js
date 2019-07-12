@@ -30,7 +30,7 @@ export function register(config) {
       // serve assets; see https://github.com/facebook/create-react-app/issues/2374
       return;
     }
-
+// Note: 'load' is the event listener that fires when the serviceworker has been registered and created
     window.addEventListener('load', () => {
       const swUrl = `${process.env.PUBLIC_URL}/sw.js`;
 

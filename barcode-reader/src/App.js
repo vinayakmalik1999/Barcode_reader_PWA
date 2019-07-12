@@ -40,6 +40,7 @@ function App() {
              <Route exact path="/" component={Home}/>
              <Route path="/stuff" component={Stuff}/>
              <Route path ="/contact" component ={Contact}/>
+             <Route component={Home}/>
              </Switch>
               </div>
           </div>

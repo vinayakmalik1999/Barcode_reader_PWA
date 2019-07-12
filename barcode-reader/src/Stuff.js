@@ -5,6 +5,7 @@ import Table from 'react-bootstrap/Table'
 import Button from 'react-bootstrap/Button'
 import OfflineBanner from './OfflineBanner.js'
 import InputGroup from 'react-bootstrap/InputGroup'
+import Spinner from 'react-bootstrap/Spinner'
 import { Offline, Online } from 'react-detect-offline'
 import db from './dexieDB.js'
 
@@ -21,6 +22,7 @@ class UserPage extends Component {
         offlineSubmitValue:'',
         iDB:{}
       }
+      //Important : you need to bind this(value in constructor) to the handler to use it in handler function
       this.handleChange = this.handleChange.bind(this);
       this.handleSubmit = this.handleSubmit.bind(this);
     }
@@ -50,9 +52,7 @@ return;
   axios.post('https://kt-dev.outsystemscloud.com/PWABack/rest/BarCode/Post',
   {
     Code:this.state.formValue
-  })
-
-     .then(res => {
+  }).then(res => {
        console.log(res);
        this.setState({resValue:res.data});
        axios.get('https://kt-dev.outsystemscloud.com/PWABack/rest/BarCode/GetList')
@@ -64,26 +64,21 @@ return;
          console.log(error)
          })
 
-       });
+
        this.setState({formValue:''})
 
-     })
-     .catch(error => {
+     }).catch(error => {
        var pushValues = []
         navigator.serviceWorker.controller.postMessage(this.state.formValue)
 
        console.log("Offline sending data to SW");
        console.log(this.state.offlineSubmitValue);
-     db.table('formValues').add({Code:this.state.offlineSubmitValue}).then(() =>{
-      db.formValues.get(1, (res) =>{
-        pushValues.push({Id:res.id,Code:res.Code})
-        console.log(pushValues)
+     db.table('formValues').add({Code:this.state.offlineSubmitValue,createdDate:'2019-07-12'}).then(() =>{
+      db.formValues.toArray( (array) =>{
+        this.setState({offlineUser:array});
+        console.log(this.state.offlineUser)
       })
-    }).then(() => {
-        console.log(pushValues)
-        this.setState({offlineUser:pushValues})
-      })
-
+    })
 
        this.setState({formValue:''})
 
@@ -94,22 +89,22 @@ return;
 handleChange(event){
   this.setState({formValue:event.target.value})
   this.setState({offlineSubmitValue:this.state.formValue})
-
-
 }
 
 
   // Return a table with some data from the API.
 
   render(){
-
-
+if(navigator.onLine){
+  db.table("formValues").clear()
+}
   return  (
 
     <div className="container">
     <Offline>
       <OfflineBanner/>
       </Offline>
+
             <form onSubmit ={this.handleSubmit}>
               <input type ="string" value = {this.state.formValue} onChange={this.handleChange}/>
               <Button type="submit" variant="light">Add</Button>
@@ -117,11 +112,14 @@ handleChange(event){
             <Button variant="light">Scan</Button>
             </Link>
               </form>
+
 <Offline>
               <Table striped bordered hover variant="dark">
 
                     <thead>
-                    <tr><th>OFFLINE RESULTS</th></tr>
+                    <tr><th>OFFLINE RESULTS</th>
+
+  </tr>
                       <tr>
                         <th>ID</th>
                         <th>Code</th>
@@ -131,7 +129,7 @@ handleChange(event){
                     <tbody>
                     {this.state.offlineUser.map((users, index)=> (
                       <tr key ={index}>
-                        <td >{users.Id}</td>
+                        <td >{users.id} <Spinner animation="grow" variant="warning" size="sm"/></td>  
                         <td >{users.Code}</td>
                         <td >{users.createdDate}</td>
                         </tr>

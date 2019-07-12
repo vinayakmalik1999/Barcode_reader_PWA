@@ -16,7 +16,7 @@ if ('function' === typeof importScripts) {
 workbox.routing.registerNavigationRoute('/index.html', {
       blacklist: [/^\/_/, /\/[^\/]+\.[^\/]+$/],
     });
-
+//above this default static caching setup
 workbox.routing.registerRoute(
       /\.(?:png|gif|jpg|jpeg|webp|svg)$/,
       workbox.strategies.cacheFirst({
@@ -38,8 +38,10 @@ workbox.routing.registerRoute(
   'https://kt-dev.outsystemscloud.com/PWABack/rest/BarCode/GetList',
   new workbox.strategies.NetworkFirst(),
 );
-
+//Caching is done here !!!
 //message recieve handler
+//Note:'message' is a keyword, you have to use this keyword. It is a string type
+//of keyword.
 self.addEventListener('message', function (event) {
   console.log('form data', event.data)
 
@@ -89,6 +91,8 @@ function openDatabase () {
     console.error('IndexedDB creation error:', error)
   }
 }
+//Note: 'syne' is also a keyword of. It is just check online/offlineUser
+// it runs only on offline. sync event 
 self.addEventListener('sync', function (event) {
   console.log('[ServiceWorker]ONLINE sync event started')
     //tag for sync
