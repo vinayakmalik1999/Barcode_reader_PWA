@@ -8,13 +8,17 @@
     "bootstrap": "^4.3.1",
     "cra-append-sw": "^2.6.1",
     "dexie": "^2.0.4",
+    "mdbreact": "^4.18.0",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-bootstrap": "^1.0.0-beta.9",
+    "react-burger-menu": "^2.6.10",
     "react-detect-offline": "^2.4.0",
     "react-dom": "^16.8.6",
     "react-router-dom": "^5.0.1",
-    "react-scripts": "3.0.1"
+    "react-scripts": "3.0.1",
+    "react-sidebar": "^3.0.2",
+    "react-sidenav": "^4.0.3"
   },
   "scripts": {
     "start": "react-scripts start",

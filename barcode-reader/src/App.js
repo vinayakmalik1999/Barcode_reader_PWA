@@ -16,21 +16,24 @@ import NavDropdown from 'react-bootstrap/NavDropdown'
 import Form from 'react-bootstrap/Form'
 import FormControl from 'react-bootstrap/FormControl'
 import Button from 'react-bootstrap/Button'
-
+import BurgerMenu from "./BurgerMenu"
+import Container from "react-bootstrap/Container"
+import { Link } from 'react-router-dom'
 function App() {
     return (
         <Router>
           <div>
-<Navbar bg="dark" expand="lg">
-<Navbar.Brand><NavLink exact to="/">KT</NavLink></Navbar.Brand>
-<Navbar.Toggle aria-controls="basic-navbar-nav" />
-<Nav className="mr-auto">
-    </Nav>
-    <Navbar.Collapse>
-    <Form inline>
-    <Nav.Link href="/">Home</Nav.Link>
-    </Form>
-    </Navbar.Collapse>
+
+<Navbar sticky="top" bg="dark" expand="lg">
+<header><Navbar.Brand>{<BurgerMenu/>}. </Navbar.Brand></header>
+ <Link to = "/"><Navbar.Brand>HOME</Navbar.Brand></Link>
+<Navbar.Text>
+      Signed in as: <a href="#login">USER</a>
+    </Navbar.Text>
+
+
+
+
 </Navbar>
 
 

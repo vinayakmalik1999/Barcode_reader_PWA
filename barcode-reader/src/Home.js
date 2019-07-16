@@ -4,6 +4,7 @@ import ListGroup from 'react-bootstrap/ListGroup'
 import ControlledCarousel from './ControlledCarousel.js'
 import OfflineBanner from './OfflineBanner.js'
 import { Offline, Online } from 'react-detect-offline'
+
 class Home extends Component {
   render() {
     return (
@@ -12,18 +13,17 @@ class Home extends Component {
       <div>
       <Offline>
         <OfflineBanner/>
-        </Offline>      
-      <ControlledCarousel/>
+        </Offline>
 
-      <ListGroup  defaultActiveKey="#link1">
-      <Link to ="/stuff">
-      <ListGroup.Item action variant="dark">
-   <h1>BarcodeList</h1>
+      <ListGroup>
+      <Link to ="/stuff" style={{ textDecoration: 'none' }}>
+      <ListGroup.Item action variant="#ffffff">
+   <h1>INBOUND</h1>
       </ListGroup.Item>
       </Link>
-        <Link to ="/contact">
-         <ListGroup.Item action variant="dark" >
-        <h1>BarcodeScanner</h1>
+        <Link to ="/contact" style={{ textDecoration: 'none' }}>
+         <ListGroup.Item action variant="#ffffff" >
+        <h1>OUTBOUND</h1>
          </ListGroup.Item>
          </Link>
 
