@@ -79,7 +79,7 @@ const SubNavItem: React.FC = props => {
 
       <SideNav  defaultSelectedPath="1" childrenToggleMode='click'>
         <Nav id="1">
-        <Link to ="/stuff" style={{ textDecoration: 'none' }}>    <NavItem  title={"DashBoard"} /></Link>
+        <Link to ="/" style={{ textDecoration: 'none' }}>    <NavItem  title={"DashBoard"} /></Link>
         </Nav>
         <Nav id="2">
           <NavItem title={"Outbound"} />
