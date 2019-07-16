@@ -43,6 +43,7 @@ function App() {
              <Route exact path="/" component={Home}/>
              <Route path="/stuff" component={Stuff}/>
              <Route path ="/contact" component ={Contact}/>
+             //for all errant routes divert back to home 
              <Route component={Home}/>
              </Switch>
               </div>
