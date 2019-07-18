@@ -92,7 +92,7 @@ function openDatabase () {
   }
 }
 //Note: 'syne' is also a keyword of. It is just check online/offlineUser
-// it runs only on offline. sync event 
+// it runs only on offline. sync event
 self.addEventListener('sync', function (event) {
   console.log('[ServiceWorker]ONLINE sync event started')
     //tag for sync
@@ -151,4 +151,7 @@ function sendDataToServer () {
      }
     }
   }
+}
+self.skipWaiting().then(() =>{
+  clients.claim();
 }
