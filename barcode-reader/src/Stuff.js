@@ -28,7 +28,7 @@ class UserPage extends Component {
     }
 
 
-  //  retrieve data from API
+  //  retrieve data from API using WillMount lifecycle
   componentWillMount() {
   axios.get('https://kt-dev.outsystemscloud.com/PWABack/rest/BarCode/GetList')
   .then(response => {
@@ -36,13 +36,15 @@ class UserPage extends Component {
     this.setState({user:response.data});
   })
   .catch(error => {
+    //not super required as it is handeled by the service worker, makes things a little smoother though
     return caches.match('https://kt-dev.outsystemscloud.com/PWABack/rest/BarCode/GetList')
 
 
   });
 }
-
+//handler for form data submit
 handleSubmit(event){
+  //prevent refresh 
   event.preventDefault();
 if(this.state.formValue === ''){
   alert("please enter a value");
@@ -129,7 +131,7 @@ if(navigator.onLine){
                     <tbody>
                     {this.state.offlineUser.map((users, index)=> (
                       <tr key ={index}>
-                        <td >{users.id} <Spinner animation="grow" variant="warning" size="sm"/></td>  
+                        <td >{users.id} <Spinner animation="grow" variant="warning" size="sm"/></td>
                         <td >{users.Code}</td>
                         <td >{users.createdDate}</td>
                         </tr>
