@@ -154,4 +154,4 @@ function sendDataToServer () {
 }
 self.skipWaiting().then(() =>{
   clients.claim();
-}
+})
