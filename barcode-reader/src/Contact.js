@@ -3,7 +3,7 @@ import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Button from 'react-bootstrap/Button'
-import OfflineBanner from './OfflineBanner.js'
+import OfflineBanner from './components/OfflineBanner.js'
 import { Offline, Online } from 'react-detect-offline'
 class Contact extends Component {
 

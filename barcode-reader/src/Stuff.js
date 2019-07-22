@@ -3,11 +3,11 @@ import axios from 'axios'
 import { Link } from 'react-router-dom'
 import Table from 'react-bootstrap/Table'
 import Button from 'react-bootstrap/Button'
-import OfflineBanner from './OfflineBanner.js'
+import OfflineBanner from './components/OfflineBanner.js'
 import InputGroup from 'react-bootstrap/InputGroup'
 import Spinner from 'react-bootstrap/Spinner'
 import { Offline, Online } from 'react-detect-offline'
-import db from './dexieDB.js'
+import db from './components/dexieDB.js'
 
 class UserPage extends Component {
   // Setting initial state
@@ -44,7 +44,7 @@ class UserPage extends Component {
 }
 //handler for form data submit
 handleSubmit(event){
-  //prevent refresh 
+  //prevent refresh
   event.preventDefault();
 if(this.state.formValue === ''){
   alert("please enter a value");

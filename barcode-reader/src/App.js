@@ -16,18 +16,19 @@ import NavDropdown from 'react-bootstrap/NavDropdown'
 import Form from 'react-bootstrap/Form'
 import FormControl from 'react-bootstrap/FormControl'
 import Button from 'react-bootstrap/Button'
-import BurgerMenu from "./BurgerMenu"
+import BurgerMenu from "./components/BurgerMenu"
 import Container from "react-bootstrap/Container"
+import ErrorPage from './ErrorPage'
 import { Link } from 'react-router-dom'
 function App() {
     return (
         <Router>
           <div>
 
-<Navbar sticky="top" bg="dark" expand="lg">
+<Navbar sticky="top" className="bg-dark justify-content-between" expand="lg">
 <header><Navbar.Brand>{<BurgerMenu/>}. </Navbar.Brand></header>
  <Link to = "/"><Navbar.Brand>HOME</Navbar.Brand></Link>
-<Navbar.Text>
+<Navbar.Text align ='right' width ='18em'>
       Signed in as: <a href="#login">USER</a>
     </Navbar.Text>
 
@@ -43,8 +44,8 @@ function App() {
              <Route exact path="/" component={Home}/>
              <Route path="/stuff" component={Stuff}/>
              <Route path ="/contact" component ={Contact}/>
-             //for all errant routes divert back to home 
-             <Route component={Home}/>
+             //for all errant routes divert back to home
+             <Route component={ErrorPage}/>
              </Switch>
               </div>
           </div>

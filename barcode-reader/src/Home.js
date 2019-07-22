@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { Link } from 'react-router-dom'
 import ListGroup from 'react-bootstrap/ListGroup'
-import ControlledCarousel from './ControlledCarousel.js'
-import OfflineBanner from './OfflineBanner.js'
+import ControlledCarousel from './components/ControlledCarousel.js'
+import OfflineBanner from './components/OfflineBanner.js'
 import { Offline, Online } from 'react-detect-offline'
 
 class Home extends Component {
