@@ -5,7 +5,7 @@ import Col from 'react-bootstrap/Col'
 import Button from 'react-bootstrap/Button'
 import OfflineBanner from './components/OfflineBanner.js'
 import { Offline, Online } from 'react-detect-offline'
-class Contact extends Component {
+class ScanPage extends Component {
 
   render() {
     return (
@@ -13,7 +13,7 @@ class Contact extends Component {
       <Offline>
         <OfflineBanner/>
         </Offline>
-
+        
        <Button variant="primary">ADD</Button>
 
         </div>
@@ -23,4 +23,4 @@ class Contact extends Component {
 
 
 
-export default Contact;
+export default ScanPage;

@@ -9,7 +9,7 @@ import Spinner from 'react-bootstrap/Spinner'
 import { Offline, Online } from 'react-detect-offline'
 import db from './components/dexieDB.js'
 
-class UserPage extends Component {
+class ListPage extends Component {
   // Setting initial state
 
   constructor(props) {
@@ -116,7 +116,7 @@ if(navigator.onLine){
               </form>
 
 <Offline>
-              <Table striped bordered hover variant="dark">
+              <Table striped bordered hover variant="dark" responsive>
 
                     <thead>
                     <tr><th>OFFLINE RESULTS</th>
@@ -141,7 +141,7 @@ if(navigator.onLine){
                         </tbody>
                       </Table>
   </Offline>
-  <Table striped bordered hover variant="dark">
+  <Table striped bordered hover variant="dark" responsive="sm">
         <thead>
           <tr>
             <th>ID</th>
@@ -167,6 +167,6 @@ if(navigator.onLine){
 }
 }
 
-export default UserPage
+export default ListPage
 
  

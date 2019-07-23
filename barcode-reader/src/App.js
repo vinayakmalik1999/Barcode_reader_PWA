@@ -8,8 +8,8 @@ import {
   Switch
 } from "react-router-dom";
 import Home from "./Home";
-import Stuff from "./Stuff";
-import Contact from "./Contact";
+import ListPage from "./ListPage";
+import ScanPage from "./ScanPage";
 import Navbar from 'react-bootstrap/Navbar'
 import Nav from 'react-bootstrap/Nav'
 import NavDropdown from 'react-bootstrap/NavDropdown'
@@ -42,8 +42,8 @@ function App() {
             <div className="content">
             <Switch>
              <Route exact path="/" component={Home}/>
-             <Route path="/stuff" component={Stuff}/>
-             <Route path ="/contact" component ={Contact}/>
+             <Route path="/stuff" component={ListPage}/>
+             <Route path ="/contact" component ={ScanPage}/>
              //for all errant routes divert back to home
              <Route component={ErrorPage}/>
              </Switch>
