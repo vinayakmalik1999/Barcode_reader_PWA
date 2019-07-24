@@ -19,6 +19,8 @@ import Button from 'react-bootstrap/Button'
 import BurgerMenu from "./components/BurgerMenu"
 import Container from "react-bootstrap/Container"
 import ErrorPage from './ErrorPage'
+import InfoPage from './info'
+import {Receiving} from './receiving'
 import { Link } from 'react-router-dom'
 function App() {
     return (
@@ -44,6 +46,8 @@ function App() {
              <Route exact path="/" component={Home}/>
              <Route path="/stuff" component={ListPage}/>
              <Route path ="/contact" component ={ScanPage}/>
+          /*   <Route path ="/info" component ={InfoPage}/> */
+           <Route path ="/receiving" component ={Receiving}/>
              //for all errant routes divert back to home
              <Route component={ErrorPage}/>
              </Switch>

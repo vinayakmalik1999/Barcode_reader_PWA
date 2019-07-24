@@ -105,12 +105,14 @@ const SubNavItem: React.FC = props => {
         <Nav id="3">
           <NavItem  title={"Inbound"} />
           <Nav id="3.1">
-            <SubNavItem>Receiving</SubNavItem>
+          <Link to ='/receiving' style={{ textDecoration: 'none' }}>  <SubNavItem>Receiving</SubNavItem></Link>
           </Nav>
           <Nav id="3.2">
             <SubNavItem>Putaway</SubNavItem>
           </Nav>
         </Nav>
+
+
       </SideNav>
 
   );
