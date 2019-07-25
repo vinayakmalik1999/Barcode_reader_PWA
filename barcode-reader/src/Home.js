@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Link } from 'react-router-dom'
-import ListGroup from 'react-bootstrap/ListGroup'
+import {ListGroup,Card,CardColumns} from 'react-bootstrap'
 import ControlledCarousel from './components/ControlledCarousel.js'
 import OfflineBanner from './components/OfflineBanner.js'
 import { Offline, Online } from 'react-detect-offline'
@@ -15,19 +15,98 @@ class Home extends Component {
         <OfflineBanner/>
         </Offline>
 
-      <ListGroup>
-      <Link to ="/stuff" style={{ textDecoration: 'none' }}>
-      <ListGroup.Item action variant="#ffffff">
-   <h1>INBOUND</h1>
-      </ListGroup.Item>
-      </Link>
-        <Link to ="/contact" style={{ textDecoration: 'none' }}>
-         <ListGroup.Item action variant="#ffffff" >
-        <h1>OUTBOUND</h1>
-         </ListGroup.Item>
-         </Link>
-
-       </ListGroup>
+        <CardColumns>
+      <Card>
+        <Card.Img variant="top" src="https://wallpaperplay.com/walls/full/7/8/6/117019.jpg" />
+        <Card.Body>
+          <Card.Title>Card title that wraps to a new line</Card.Title>
+          <Card.Text>
+            This is a longer card with supporting text below as a natural lead-in to
+            additional content. This content is a little bit longer.
+          </Card.Text>
+        </Card.Body>
+      </Card>
+      <Card className="p-3">
+        <blockquote className="blockquote mb-0 card-body">
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere
+            erat a ante.
+          </p>
+          <footer className="blockquote-footer">
+            <small className="text-muted">
+              Someone famous in <cite title="Source Title">Source Title</cite>
+            </small>
+          </footer>
+        </blockquote>
+      </Card>
+      <Card>
+        <Card.Img variant="top" src="https://wallpaperplay.com/walls/full/7/8/6/117019.jpg" />
+        <Card.Body>
+          <Card.Title>Card title</Card.Title>
+          <Card.Text>
+            This card has supporting text below as a natural lead-in to additional
+            content.{' '}
+          </Card.Text>
+        </Card.Body>
+        <Card.Footer>
+          <small className="text-muted">Last updated 3 mins ago</small>
+        </Card.Footer>
+      </Card>
+      <Card bg="primary" text="white" className="text-center p-3">
+        <blockquote className="blockquote mb-0 card-body">
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere
+            erat a ante.
+          </p>
+          <footer className="blockquote-footer">
+            <small className="text-muted">
+              Someone famous in <cite title="Source Title">Source Title</cite>
+            </small>
+          </footer>
+        </blockquote>
+      </Card>
+      <Card className="text-center">
+        <Card.Body>
+          <Card.Title>Card title</Card.Title>
+          <Card.Text>
+            This card has supporting text below as a natural lead-in to additional
+            content.{' '}
+          </Card.Text>
+          <Card.Text>
+            <small className="text-muted">Last updated 3 mins ago</small>
+          </Card.Text>
+        </Card.Body>
+      </Card>
+      <Card>
+        <Card.Img src="https://wallpaperplay.com/walls/full/7/8/6/117019.jpg" />
+      </Card>
+      <Card className="text-right">
+        <blockquote className="blockquote mb-0 card-body">
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere
+            erat a ante.
+          </p>
+          <footer className="blockquote-footer">
+            <small className="text-muted">
+              Someone famous in <cite title="Source Title">Source Title</cite>
+            </small>
+          </footer>
+        </blockquote>
+      </Card>
+      <Card>
+        <Card.Body>
+          <Card.Title>Card title</Card.Title>
+          <Card.Text>
+            This is a wider card with supporting text below as a natural lead-in to
+            additional content. This card has even longer content than the first to
+            show that equal height action.
+          </Card.Text>
+          <Card.Text>
+            <small className="text-muted">Last updated 3 mins ago</small>
+          </Card.Text>
+        </Card.Body>
+      </Card>
+    </CardColumns>
 
 
 

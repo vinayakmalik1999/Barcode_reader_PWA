@@ -1,0 +1,35 @@
+.Navbar{
+  background-color:#000;
+  color:rgba(254, 254, 254, 1);
+}
+.navbar-toggler{
+    border-color: transparent
+
+}
+button:focus{
+  outline:0px;
+  border-color: #000;
+
+}
+.dropdown-menu{
+   background-color: #000;
+}
+.dropdown-item{
+  color:#fefefe
+}
+.navbar-dark .navbar-toggler-icon{
+  color: #fefefe
+}
+.navbar-dark .navbar-toggler{
+  border-color: #000
+
+}
+.dropdown-divider{
+  border-top:hidden;
+}
+.navbar-dark .navbar-nav .nav-link {
+  color:#fefefe
+}
+.dropdown-item.active, .dropdown-item:active{
+  background-color: #000000
+}

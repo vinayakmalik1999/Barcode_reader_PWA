@@ -1,5 +1,8 @@
 import React, { Component } from "react"
 import axios from 'axios'
+import OfflineBanner from './components/OfflineBanner.js'
+import { Offline, Online } from 'react-detect-offline'
+
 export default class CeleroListPage extends Component {
   // Setting initial state
 
@@ -10,23 +13,33 @@ export default class CeleroListPage extends Component {
 
       }
       //Important : you need to bind this(value in constructor) to the handler to use it in handler function
-      this.handleChange = this.handleChange.bind(this);
-      this.handleSubmit = this.handleSubmit.bind(this);
+
     }
     componentWillMount() {
-    axios.get('https://api.uat.celeroerp.com/api/Settings/Site/GetActiveSiteList?isDeleted=0&userSiteId=1')
+    axios.get('https://api.dev.celeroerp.com/api/Settings/Site/GetActiveSiteList'
+)
     .then(response => {
 
       this.setState({user:response.data});
-      console.log(this.state.user)
+      console.log(this.state.user[0].Text)
+      alert(this.state.user)
     })
     .catch(error => {
       //not super required as it is handeled by the service worker, makes things a little smoother though
       return(<div>
-        {error.message}
+        {error}
 </div>
       )
 
 
     });
   }
+  render(){
+    return(
+      <Offline>
+        <OfflineBanner/>
+        </Offline>
+
+    )
+  }
+}
