@@ -3,10 +3,12 @@ import axios from 'axios'
 import { Link } from 'react-router-dom'
 import Table from 'react-bootstrap/Table'
 import Button from 'react-bootstrap/Button'
-import OfflineBanner from './components/OfflineBanner.js'
+import Alert from './components/Alert.js'
 import InputGroup from 'react-bootstrap/InputGroup'
+import FormControl from 'react-bootstrap/FormControl'
 import Spinner from 'react-bootstrap/Spinner'
 import { Offline, Online } from 'react-detect-offline'
+
 import db from './components/dexieDB.js'
 
 class ListPage extends Component {
@@ -34,6 +36,7 @@ class ListPage extends Component {
   .then(response => {
 
     this.setState({user:response.data});
+
   })
   .catch(error => {
     //not super required as it is handeled by the service worker, makes things a little smoother though
@@ -75,7 +78,7 @@ return;
 
        console.log("Offline sending data to SW");
        console.log(this.state.offlineSubmitValue);
-     db.table('formValues').add({Code:this.state.offlineSubmitValue,createdDate:'2019-07-12'}).then(() =>{
+     db.table('formValues').add({Code:this.state.offlineSubmitValue,createdDate:'2019-07-25'}).then(() =>{
       db.formValues.toArray( (array) =>{
         this.setState({offlineUser:array});
         console.log(this.state.offlineUser)
@@ -103,20 +106,26 @@ if(navigator.onLine){
   return  (
 
     <div className="container">
-    <Offline>
-      <OfflineBanner/>
-      </Offline>
 
+<br/>
             <form onSubmit ={this.handleSubmit}>
-              <input type ="string" value = {this.state.formValue} onChange={this.handleChange}/>
-              <Button type="submit" variant="light">Add</Button>
-              <Link to ="/contact">
-            <Button variant="light">Scan</Button>
-            </Link>
+              <InputGroup>
+              <FormControl
+              value = {this.state.formValue} onChange={this.handleChange}
+     placeholder="Barcode"
+     aria-label="Barcode"
+     aria-describedby="basic-addon2"
+   />
+   <InputGroup.Append>
+       <Button type='submit' variant="outline-dark" >Add</Button>
+   </InputGroup.Append>
+   </InputGroup>
+
+
               </form>
 
 <Offline>
-              <Table striped bordered hover variant="dark" responsive>
+              <Table  hover  responsive >
 
                     <thead>
                     <tr><th>OFFLINE RESULTS</th>
@@ -125,7 +134,7 @@ if(navigator.onLine){
                       <tr>
                         <th>ID</th>
                         <th>Code</th>
-                        <th>Created Date</th>
+                        <th>Date</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -141,12 +150,12 @@ if(navigator.onLine){
                         </tbody>
                       </Table>
   </Offline>
-  <Table striped bordered hover variant="dark" responsive="sm">
+  <Table  hover responsive >
         <thead>
           <tr>
             <th>ID</th>
             <th>Code</th>
-            <th>Created Date</th>
+            <th>Date</th>
           </tr>
         </thead>
         <tbody>

@@ -4,20 +4,18 @@ import {ListGroup,Card,CardColumns} from 'react-bootstrap'
 import ControlledCarousel from './components/ControlledCarousel.js'
 import OfflineBanner from './components/OfflineBanner.js'
 import { Offline, Online } from 'react-detect-offline'
-
+import './Home.css'
 class Home extends Component {
   render() {
     return (
 
 
       <div>
-      <Offline>
-        <OfflineBanner/>
-        </Offline>
+    
 
         <CardColumns>
       <Card>
-        <Card.Img variant="top" src="https://wallpaperplay.com/walls/full/7/8/6/117019.jpg" />
+        <Card.Img variant="top" src="https://i.pinimg.com/originals/ca/d0/78/cad078ea456038edc5edd20893107420.jpg" />
         <Card.Body>
           <Card.Title>Card title that wraps to a new line</Card.Title>
           <Card.Text>
@@ -40,7 +38,7 @@ class Home extends Component {
         </blockquote>
       </Card>
       <Card>
-        <Card.Img variant="top" src="https://wallpaperplay.com/walls/full/7/8/6/117019.jpg" />
+        <Card.Img variant="top" src="https://i.pinimg.com/originals/ae/48/66/ae4866824012b855e82a358960c1d0d6.jpg" />
         <Card.Body>
           <Card.Title>Card title</Card.Title>
           <Card.Text>
@@ -52,7 +50,7 @@ class Home extends Component {
           <small className="text-muted">Last updated 3 mins ago</small>
         </Card.Footer>
       </Card>
-      <Card bg="primary" text="white" className="text-center p-3">
+      <Card bg="danger" text="white" className="text-center p-3">
         <blockquote className="blockquote mb-0 card-body">
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere
@@ -78,7 +76,7 @@ class Home extends Component {
         </Card.Body>
       </Card>
       <Card>
-        <Card.Img src="https://wallpaperplay.com/walls/full/7/8/6/117019.jpg" />
+        <Card.Img src="https://i.pinimg.com/originals/2c/5b/8f/2c5b8faa6734792968c4247b5569a95c.jpg" />
       </Card>
       <Card className="text-right">
         <blockquote className="blockquote mb-0 card-body">

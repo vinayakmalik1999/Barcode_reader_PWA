@@ -21,10 +21,13 @@ import Container from "react-bootstrap/Container"
 import ErrorPage from './ErrorPage'
 import InfoPage from './info'
 import {Collapse} from 'react-bootstrap'
-
+import { FaWarehouse } from "react-icons/fa";
+import { IconContext } from "react-icons";
 import {Receiving} from './receiving'
 import CeleroListPage from './celero_api_list_page'
 import { Link } from 'react-router-dom'
+import { Offline, Online } from 'react-detect-offline'
+import OfflineBanner from './components/OfflineBanner.js'
 
  export default class App extends Component {
    constructor(props){
@@ -43,13 +46,11 @@ import { Link } from 'react-router-dom'
 
 
 <Navbar collapseOnSelect className="Navbar" sticky="top" variant="dark" expand="md">
-  <Navbar.Brand><img
-        alt=""
-        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSafOVAb6eqWb4NZb0WlF1MsoHf_dsMdWG3UEZujQH-GsACCXeN"
-        width="30"
-        height="30"
-        className="d-inline-block align-top"
-      /></Navbar.Brand>
+  <Navbar.Brand>
+  <IconContext.Provider value={{ color: "#9a9a9a", className: "logo",size: '1.356em' }}>
+  <FaWarehouse/>
+  </IconContext.Provider>
+  </Navbar.Brand>
   <Navbar.Toggle  aria-controls="responsive-navbar-nav" />
   <Navbar.Collapse   id="responsive-navbar-nav">
     <Nav className="mr-auto" >
@@ -57,12 +58,12 @@ import { Link } from 'react-router-dom'
     <NavDropdown title="Inbound" id="responsive-nav-dropdown" class="responsive-nav-dropdown" >
 <Link to ='/receiving' style ={{textDecoration: 'none',  color: '#fff'}}>  <NavDropdown.Item href='/receiving'> Receiving</NavDropdown.Item></Link>
 <NavDropdown.Divider / >
-    <Link to ='/empty-page' style ={{textDecoration: 'none',  color: '#fff'}}>  <NavDropdown.Item href='/receiving'> Putaway</NavDropdown.Item></Link>
+    <Link to ='/empty-page' style ={{textDecoration: 'none',  color: '#fff'}}>  <NavDropdown.Item href='/Putaway'> Putaway</NavDropdown.Item></Link>
 </NavDropdown>
       <NavDropdown title="Outbound" id="responsive-nav-dropdown" class="responsive-nav-dropdown" >
     <Link to ='/empty-page' style ={{textDecoration: 'none',  color: '#fff'}}>  <NavDropdown.Item href='/'>  Replenishment </NavDropdown.Item></Link>
         <NavDropdown.Divider / >
-        <NavDropdown.Item>Pick</NavDropdown.Item>
+        <Link to ='/empty-page' style ={{textDecoration: 'none',  color: '#fff'}}>  <NavDropdown.Item>Pick</NavDropdown.Item></Link>
         <NavDropdown.Divider />
         <NavDropdown.Item>Multi-Order Pick</NavDropdown.Item>
         <NavDropdown.Divider />
@@ -79,6 +80,9 @@ import { Link } from 'react-router-dom'
   </Navbar.Collapse>
 </Navbar>
 
+<Offline>
+  <OfflineBanner/>
+  </Offline>
 
 
 
@@ -91,7 +95,7 @@ import { Link } from 'react-router-dom'
              <Route exact path="/" component={Home}/>
              <Route path="/stuff" component={ListPage}/>
              <Route path ="/contact" component ={ScanPage}/>
-            <Route path ="/info" component ={InfoPage}/>
+
            <Route path ="/receiving" component ={Receiving}/>
            <Route path ="/celero_get_api" component ={CeleroListPage}/>
 
