@@ -7,7 +7,7 @@ export const Receiving = () => {
   <Card>
 
   <ListGroup variant="flush">
-  <Link to ="/" style={{ textDecoration: 'none' }}> <ListGroup.Item style={{}}>Site :{} <div style={{ float:'right'}}>> </div></ListGroup.Item></Link>
+  <Link to ="/celero_get_api" style={{ textDecoration: 'none' }}> <ListGroup.Item style={{'font-size':'1.2rem'}}>Site :{} <div style={{ float:'right'}}>> </div></ListGroup.Item></Link>
   </ListGroup>
 </Card>
 )
