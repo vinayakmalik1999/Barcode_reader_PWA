@@ -7,7 +7,7 @@ export default class Pack extends Component {
 
 
       <div>
-      <Card  border="light" className="text-center ">
+      <Card  border="light" className="text-center p-3">
 
         <Card.Body>
           <Card.Title class='title'>Pack</Card.Title>

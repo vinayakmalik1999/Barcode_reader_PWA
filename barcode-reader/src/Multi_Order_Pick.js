@@ -7,7 +7,7 @@ export default class Multi_Order_Pick extends Component {
 
 
       <div>
-      <Card  border="light" className="text-center ">
+      <Card  border="light" className="text-center p-3">
 
         <Card.Body>
           <Card.Title class='title'>Multi Order Pick</Card.Title>

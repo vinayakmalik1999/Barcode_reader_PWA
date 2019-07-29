@@ -7,7 +7,7 @@ export default class Purchase_Receipt extends Component {
 
 
       <div>
-      <Card  border="light" className="text-center ">
+      <Card  border="light" className="text-center p-3">
 
         <Card.Body>
           <Card.Title class='title'>Purchase Receipt</Card.Title>

@@ -7,7 +7,7 @@ export default class Replenishment extends Component {
 
 
       <div>
-      <Card  border="light" className="text-center ">
+      <Card  border="light" className="text-center p-3">
 
         <Card.Body>
           <Card.Title class='title'>Replenishment</Card.Title>

@@ -34,22 +34,22 @@ var key =  window.location.search.slice(1).split("&")[0].split("=")[1]
 <Link to ="/celero_get_api" style={{ textDecoration: 'none' }}> <ListGroup.Item style={{'font-size':'1.1rem'}}>Site : {sessionStorage.getItem(key)} <div style={{ float:'right'}}>> </div></ListGroup.Item></Link>
 </ListGroup>
 </Card>
-    <CardGroup style={{'margin-bottom':'0px'}}>
+    <CardGroup >
 
   <Card  border="light" className="text-center p-3">
+  <Link to ='/Inbound'  style ={{textDecoration: 'none',  color: 'inherit'}}>
 
     <Card.Body>
       <Card.Title>
       <IconContext.Provider value={{ color: "#000", className: "inbound",size: '2.1em' }}>
-        <Link to ='/Inbound'  style ={{textDecoration: 'none',  color: 'inherit'}}>
       <FaWarehouse/>
-      </Link>
       </IconContext.Provider>
       </Card.Title>
 
       Inbound
 
     </Card.Body>
+    </Link>
 
   </Card>
   <Card  border="light" className="text-center p-3">
@@ -68,17 +68,17 @@ var key =  window.location.search.slice(1).split("&")[0].split("=")[1]
       </Link>
   </Card>
   <Card  border="light" className="text-center p-3">
+  <Link to ='/Putaway'  style ={{textDecoration: 'none',  color: 'inherit'}}>
 
     <Card.Body>
       <Card.Title>
       <IconContext.Provider value={{ color: "#000", className: "inbound",size: '2.1em' }}>
-        <Link to ='/Putaway'  style ={{textDecoration: 'none',  color: 'inherit'}}>
       <FaBoxes/>
-      </Link>
       </IconContext.Provider>
       </Card.Title>
       Put Away
     </Card.Body>
+    </Link>
 
   </Card>
 </CardGroup>

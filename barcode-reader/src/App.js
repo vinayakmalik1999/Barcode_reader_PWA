@@ -21,7 +21,7 @@ import Container from "react-bootstrap/Container"
 import ErrorPage from './ErrorPage'
 import InfoPage from './info'
 import {Collapse} from 'react-bootstrap'
-import { FaHome } from "react-icons/fa";
+import { IoMdBarcode } from "react-icons/io";
 import { IconContext } from "react-icons";
 import {Receiving} from './receiving'
 import CeleroListPage from './celero_api_list_page'
@@ -37,6 +37,40 @@ import Pack from './Pack'
 import Ship from './Ship'
 import Inbound from './Inbound'
 import Purchase_Receipt from './Purchase_Receipt'
+import { spring, AnimatedSwitch } from 'react-router-transition';
+function mapStyles(styles) {
+  return {
+    opacity: styles.opacity,
+    transform: `scale(${styles.scale})`,
+  };
+}
+
+// wrap the `spring` helper to use a bouncy config
+function bounce(val) {
+  return spring(val, {
+    stiffness: 200,
+    damping: 25,
+  });
+}
+
+// child matches will...
+const bounceTransition = {
+  // start in a transparent, upscaled state
+  atEnter: {
+    opacity: 0,
+    scale: 0.25,
+  },
+  // leave in a transparent, downscaled state
+  atLeave: {
+    opacity: bounce(0),
+    scale: bounce(1.75),
+  },
+  // and rest at an opaque, normally-scaled state
+  atActive: {
+    opacity: bounce(1),
+    scale: bounce(1),
+  },
+};
 
  export default class App extends Component {
    constructor(props){
@@ -57,16 +91,16 @@ import Purchase_Receipt from './Purchase_Receipt'
 <Navbar collapseOnSelect className="Navbar" sticky="top" variant="dark" expand="md">
   <Navbar.Brand>
 
-  <IconContext.Provider value={{ color: "#9a9a9a", className: "logo",size: '1.356em' }}>
+  <IconContext.Provider value={{ color: "#9a9a9a", className: "logo",size: '1.4em' }}>
     <Link to ='/'  style ={{textDecoration: 'none',  color: 'inherit'}}>
-  <FaHome/>
+  <IoMdBarcode/>
   </Link>
   </IconContext.Provider>
   </Navbar.Brand>
   <Navbar.Toggle  aria-controls="responsive-navbar-nav" />
   <Navbar.Collapse   id="responsive-navbar-nav">
     <Nav className="mr-auto" >
-    <Link to ='/' style ={{textDecoration: 'none',  color: '#fff'}}>  <Nav.Link href="/">Home </Nav.Link></Link>
+    <Link to ='/' style ={{textDecoration: 'none',  color: '#fff'}}>  <Nav.Link href="/">DashBoard </Nav.Link></Link>
     <NavDropdown title="Inbound" id="responsive-nav-dropdown" class="responsive-nav-dropdown" >
 <Link to ='/receiving' style ={{textDecoration: 'none',  color: '#fff'}}>  <NavDropdown.Item href='/receiving'> Receiving</NavDropdown.Item></Link>
 <NavDropdown.Divider / >
@@ -103,7 +137,13 @@ import Purchase_Receipt from './Purchase_Receipt'
 
 
             <div className="content">
-            <Switch>
+            <AnimatedSwitch
+            atEnter={bounceTransition.atEnter}
+        atLeave={bounceTransition.atLeave}
+        atActive={bounceTransition.atActive}
+        mapStyles={mapStyles}
+        className="route-wrapper"
+        >
              <Route exact path="/" component={Home}/>
              <Route path="/stuff" component={ListPage}/>
              <Route path ="/contact" component ={ScanPage}/>
@@ -119,9 +159,9 @@ import Purchase_Receipt from './Purchase_Receipt'
               <Route path ='/Ship' component ={Ship}/>
                 <Route path ='/Inbound' component ={Inbound}/>
                   <Route path ='/Purchase_Receipt' component ={Purchase_Receipt}/>
-             //for all errant routes divert back to home
+
              <Route component={ErrorPage}/>
-             </Switch>
+      </AnimatedSwitch>
               </div>
           </div>
         </Router>

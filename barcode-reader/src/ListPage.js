@@ -3,6 +3,7 @@ import axios from 'axios'
 import { Link } from 'react-router-dom'
 import Table from 'react-bootstrap/Table'
 import Button from 'react-bootstrap/Button'
+import Card from 'react-bootstrap/Card'
 import Alert from './components/Alert.js'
 import InputGroup from 'react-bootstrap/InputGroup'
 import FormControl from 'react-bootstrap/FormControl'
@@ -106,7 +107,15 @@ if(navigator.onLine){
   return  (
 
     <div className="container">
+    <Card bg="light" border="light" className="text-center p-3">
 
+      <Card.Body>
+        <Card.Title class='title'>ListPage</Card.Title>
+
+
+      </Card.Body>
+
+    </Card>
 <br/>
             <form onSubmit ={this.handleSubmit}>
               <InputGroup>
