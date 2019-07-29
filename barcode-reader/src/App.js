@@ -21,13 +21,22 @@ import Container from "react-bootstrap/Container"
 import ErrorPage from './ErrorPage'
 import InfoPage from './info'
 import {Collapse} from 'react-bootstrap'
-import { FaWarehouse } from "react-icons/fa";
+import { FaHome } from "react-icons/fa";
 import { IconContext } from "react-icons";
 import {Receiving} from './receiving'
 import CeleroListPage from './celero_api_list_page'
 import { Link } from 'react-router-dom'
 import { Offline, Online } from 'react-detect-offline'
 import OfflineBanner from './components/OfflineBanner.js'
+import Putaway from './Putaway'
+import Replenishment from './Replenishment'
+import Pick from './Pick'
+import Multi_Order_Pick from './Multi_Order_Pick'
+import User_Defined_Task from './User_Defined_Task'
+import Pack from './Pack'
+import Ship from './Ship'
+import Inbound from './Inbound'
+import Purchase_Receipt from './Purchase_Receipt'
 
  export default class App extends Component {
    constructor(props){
@@ -50,7 +59,7 @@ import OfflineBanner from './components/OfflineBanner.js'
 
   <IconContext.Provider value={{ color: "#9a9a9a", className: "logo",size: '1.356em' }}>
     <Link to ='/'  style ={{textDecoration: 'none',  color: 'inherit'}}>
-  <FaWarehouse/>
+  <FaHome/>
   </Link>
   </IconContext.Provider>
   </Navbar.Brand>
@@ -61,20 +70,20 @@ import OfflineBanner from './components/OfflineBanner.js'
     <NavDropdown title="Inbound" id="responsive-nav-dropdown" class="responsive-nav-dropdown" >
 <Link to ='/receiving' style ={{textDecoration: 'none',  color: '#fff'}}>  <NavDropdown.Item href='/receiving'> Receiving</NavDropdown.Item></Link>
 <NavDropdown.Divider / >
-    <Link to ='/empty-page' style ={{textDecoration: 'none',  color: '#fff'}}>  <NavDropdown.Item href='/Putaway'> Putaway</NavDropdown.Item></Link>
+    <Link to ='/Putaway' style ={{textDecoration: 'none',  color: '#fff'}}>  <NavDropdown.Item href='/Putaway'> Putaway</NavDropdown.Item></Link>
 </NavDropdown>
       <NavDropdown title="Outbound" id="responsive-nav-dropdown" class="responsive-nav-dropdown" >
-    <Link to ='/empty-page' style ={{textDecoration: 'none',  color: '#fff'}}>  <NavDropdown.Item href='/'>  Replenishment </NavDropdown.Item></Link>
+    <Link to ='/Replenishment' style ={{textDecoration: 'none',  color: '#fff'}}>  <NavDropdown.Item href='/Replenishment'>  Replenishment </NavDropdown.Item></Link>
         <NavDropdown.Divider / >
-        <Link to ='/empty-page' style ={{textDecoration: 'none',  color: '#fff'}}>  <NavDropdown.Item>Pick</NavDropdown.Item></Link>
+        <Link to ='/Pick' style ={{textDecoration: 'none',  color: '#fff'}}>  <NavDropdown.Item href='/Pick'>Pick</NavDropdown.Item></Link>
         <NavDropdown.Divider />
-        <NavDropdown.Item>Multi-Order Pick</NavDropdown.Item>
+    <Link to ='/Multi_Order_Pick' style ={{textDecoration: 'none',  color: '#fff'}}>     <NavDropdown.Item href='/Multi_Order_Pick'>Multi-Order Pick</NavDropdown.Item></Link>
         <NavDropdown.Divider />
-        <NavDropdown.Item >User Defined Task</NavDropdown.Item>
+        <Link to ='/User_Defined_Task' style ={{textDecoration: 'none',  color: '#fff'}}> <NavDropdown.Item href='/Multi_Order_Pick' >User Defined Task</NavDropdown.Item></Link>
         <NavDropdown.Divider />
-        <NavDropdown.Item >Pack</NavDropdown.Item>
+        <Link to ='/Pack' style ={{textDecoration: 'none',  color: '#fff'}}> <NavDropdown.Item href='/Multi_Order_Pick' >Pack</NavDropdown.Item></Link>
         <NavDropdown.Divider />
-        <NavDropdown.Item >Ship</NavDropdown.Item>
+        <Link to ='/Ship' style ={{textDecoration: 'none',  color: '#fff'}}> <NavDropdown.Item href='/Multi_Order_Pick' >Ship</NavDropdown.Item></Link>
       </NavDropdown>
       <Link to ='/stuff' style ={{textDecoration: 'none',  color: '#fff'}}>  <Nav.Link href="/">ListPage</Nav.Link></Link>
       <Link to ='/contact' style ={{textDecoration: 'none',  color: '#fff'}}>  <Nav.Link href="/">ScanPage</Nav.Link></Link>
@@ -99,9 +108,17 @@ import OfflineBanner from './components/OfflineBanner.js'
              <Route path="/stuff" component={ListPage}/>
              <Route path ="/contact" component ={ScanPage}/>
 
-           <Route path ="/receiving" component ={Receiving}/>
+           <Route path ="/Receiving" component ={Receiving}/>
            <Route path ="/celero_get_api" component ={CeleroListPage}/>
-
+           <Route path ="/Putaway" component ={Putaway}/>
+           <Route path ='/Replenishment' component ={Replenishment}/>
+           <Route path ='/Pick' component ={Pick}/>
+           <Route path ='/Multi_Order_Pick' component ={Multi_Order_Pick}/>
+            <Route path ='/User_Defined_Task' component ={User_Defined_Task}/>
+             <Route path ='/Pack' component ={Pack}/>
+              <Route path ='/Ship' component ={Ship}/>
+                <Route path ='/Inbound' component ={Inbound}/>
+                  <Route path ='/Purchase_Receipt' component ={Purchase_Receipt}/>
              //for all errant routes divert back to home
              <Route component={ErrorPage}/>
              </Switch>

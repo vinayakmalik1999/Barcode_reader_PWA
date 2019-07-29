@@ -3,12 +3,30 @@ import { Link } from 'react-router-dom'
 import Card from 'react-bootstrap/Card'
 import CardGroup from 'react-bootstrap/CardGroup'
 import ListGroup from 'react-bootstrap/ListGroup'
+import { FaWarehouse } from "react-icons/fa";
+import { FaReceipt } from "react-icons/fa";
+import { FaBoxes } from "react-icons/fa";
+import { IconContext } from "react-icons";
 import './receiving.css'
 
 export const Receiving = () => {
 var key =  window.location.search.slice(1).split("&")[0].split("=")[1]
   return(
 <div>
+
+<Card  border="light" className="text-center ">
+
+  <Card.Body>
+    <Card.Title class='title'>Receiving</Card.Title>
+
+
+  </Card.Body>
+
+</Card>
+
+
+
+
 
 
 <Card>
@@ -18,37 +36,48 @@ var key =  window.location.search.slice(1).split("&")[0].split("=")[1]
 </Card>
     <CardGroup style={{'margin-bottom':'0px'}}>
 
-  <Card  border="light">
+  <Card  border="light" className="text-center p-3">
 
     <Card.Body>
-      <Card.Title>Card title</Card.Title>
+      <Card.Title>
+      <IconContext.Provider value={{ color: "#000", className: "inbound",size: '2.1em' }}>
+        <Link to ='/Inbound'  style ={{textDecoration: 'none',  color: 'inherit'}}>
+      <FaWarehouse/>
+      </Link>
+      </IconContext.Provider>
+      </Card.Title>
 
-        This is a wider card with supporting text below as a natural lead-in to
-        additional content. This content is a little bit longer.
+      Inbound
 
     </Card.Body>
 
   </Card>
-  <Card  border="light">
-
+  <Card  border="light" className="text-center p-3">
+  <Link to ='/Purchase_Receipt'  style ={{textDecoration: 'none',  color: 'inherit'}}>
     <Card.Body>
-      <Card.Title>Card title</Card.Title>
+      <Card.Title>
+      <IconContext.Provider value={{ color: "#000", className: "inbound",size: '2em' }}>
 
-        This card has supporting text below as a natural lead-in to additional
-        content.{' '}
+      <FaReceipt/>
 
+      </IconContext.Provider>
+      </Card.Title>
+      Purchase Receipt
     </Card.Body>
 
+      </Link>
   </Card>
-  <Card  border="light">
+  <Card  border="light" className="text-center p-3">
 
     <Card.Body>
-      <Card.Title>Card title</Card.Title>
-
-        This is a wider card with supporting text below as a natural lead-in to
-        additional content. This card has even longer content than the first to
-        show that equal height action.
-
+      <Card.Title>
+      <IconContext.Provider value={{ color: "#000", className: "inbound",size: '2.1em' }}>
+        <Link to ='/Putaway'  style ={{textDecoration: 'none',  color: 'inherit'}}>
+      <FaBoxes/>
+      </Link>
+      </IconContext.Provider>
+      </Card.Title>
+      Put Away
     </Card.Body>
 
   </Card>

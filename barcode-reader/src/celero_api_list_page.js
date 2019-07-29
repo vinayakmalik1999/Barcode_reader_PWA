@@ -43,8 +43,9 @@ export default class CeleroListPage extends Component {
 
   render(){
     return(
-      <Card>
-        <Card.Body>
+
+      <Card border="light" className="text-center ">
+        <Card.Body >
           <Card.Title style={{ 'font-size': '2rem'}}>Active Site List {this.state.isLoading?
             <Spinner style={{ float:'right', color:'#3333'}} animation="border" variant="dark" />:<br/>}
 
@@ -53,7 +54,7 @@ export default class CeleroListPage extends Component {
 
           <ListGroup variant="flush" style={{ 'font-size': '1.1rem'}}>
           {this.state.user.map((users, index)=> (
-                  <Link to ={"/receiving?id=" + index } style={{ textDecoration: 'none' }}  onClick = {sessionStorage.setItem(index, users.Text)}>
+                  <Link to ={"/Receiving?id=" + index } style={{ textDecoration: 'none' }}  onClick = {sessionStorage.setItem(index, users.Text)}>
                   <ListGroup.Item key ={index} >{users.Text}</ListGroup.Item>
 
                   </Link>

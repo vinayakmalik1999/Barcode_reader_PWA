@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Card from 'react-bootstrap/Card';
 import DummyPage from './containers/dummypage'
-export default class Putaway extends Component {
+export default class Replenishment extends Component {
   render() {
     return (
 
@@ -10,7 +10,7 @@ export default class Putaway extends Component {
       <Card  border="light" className="text-center ">
 
         <Card.Body>
-          <Card.Title class='title'>Putaway</Card.Title>
+          <Card.Title class='title'>Replenishment</Card.Title>
 
 
         </Card.Body>

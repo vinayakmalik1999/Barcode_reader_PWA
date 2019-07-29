@@ -2,5 +2,18 @@
   background-color: #b02123,
 }
 body{
-  background-color: #f2f2f2
+  background-color: #f2f2f2;
+  color:#101010
+}
+.title{
+  font-size: 100px;
+  font-weight:500;
+}
+@media only screen and (max-width: 816px){
+  .title{
+    font-size: 50px;
+
+
+  }
+
 }
