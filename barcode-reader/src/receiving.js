@@ -2,6 +2,13 @@ import * as React from "react";
 import { Link } from 'react-router-dom'
 import Card from 'react-bootstrap/Card'
 import ListGroup from 'react-bootstrap/ListGroup'
+
+const QueryString: React.FC = props => {
+alert(window.location.search)
+  return (
+    <div></div>
+  );
+};
 export const Receiving = () => {
   return(
   <Card>

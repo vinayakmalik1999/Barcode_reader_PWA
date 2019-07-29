@@ -31,7 +31,7 @@ class ListPage extends Component {
 
 
   //  retrieve data from API using WillMount lifecycle
-  componentWillMount() {
+  componentDidMount() {
   axios.get('https://kt-dev.outsystemscloud.com/PWABack/rest/BarCode/GetList')
   .then(response => {
 

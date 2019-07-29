@@ -23,7 +23,7 @@ export default class CeleroListPage extends Component {
       //Important : you need to bind this(value in constructor) to the handler to use it in handler function
 
     }
-    componentWillMount() {
+    componentDidMount() {
     axios.get('https://cors-anywhere.herokuapp.com/https://api.uattest.celeroerp.com/api/Settings/Site/GetActiveSiteList?isDeleted=0'
 )
     .then(response => {
@@ -47,7 +47,7 @@ export default class CeleroListPage extends Component {
       <Card>
         <Card.Body>
           <Card.Title style={{ 'font-size': '2rem'}}>Active Site List {this.state.isLoading?
-            <Spinner style={{ float:'right'}} animation="border" variant="dark" />:<br/>}
+            <Spinner style={{ float:'right', color:'#3333'}} animation="border" variant="dark" />:<br/>}
 
           </Card.Title>
 
