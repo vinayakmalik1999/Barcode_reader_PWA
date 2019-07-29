@@ -47,8 +47,11 @@ import OfflineBanner from './components/OfflineBanner.js'
 
 <Navbar collapseOnSelect className="Navbar" sticky="top" variant="dark" expand="md">
   <Navbar.Brand>
+
   <IconContext.Provider value={{ color: "#9a9a9a", className: "logo",size: '1.356em' }}>
+    <Link to ='/'  style ={{textDecoration: 'none',  color: 'inherit'}}>
   <FaWarehouse/>
+  </Link>
   </IconContext.Provider>
   </Navbar.Brand>
   <Navbar.Toggle  aria-controls="responsive-navbar-nav" />

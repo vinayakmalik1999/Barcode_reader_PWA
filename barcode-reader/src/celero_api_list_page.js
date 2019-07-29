@@ -6,7 +6,6 @@ import { Link } from 'react-router-dom'
 import Spinner from 'react-bootstrap/Spinner'
 import { IconContext } from "react-icons";
 
-import { MdAddCircle } from "react-icons/md";
 
 import {ListGroup,Card,CardColumns} from 'react-bootstrap'
 
@@ -54,7 +53,7 @@ export default class CeleroListPage extends Component {
 
           <ListGroup variant="flush" style={{ 'font-size': '1.1rem'}}>
           {this.state.user.map((users, index)=> (
-                  <Link to ={"/receiving/" + index } style={{ textDecoration: 'none' }}  onClick = {sessionStorage.setItem(index, users.Text)}>
+                  <Link to ={"/receiving?id=" + index } style={{ textDecoration: 'none' }}  onClick = {sessionStorage.setItem(index, users.Text)}>
                   <ListGroup.Item key ={index} >{users.Text}</ListGroup.Item>
 
                   </Link>
