@@ -24,6 +24,7 @@ import InfoPage from './info'
 import {Collapse} from 'react-bootstrap'
 import { IoMdBarcode } from "react-icons/io";
 import { IconContext } from "react-icons";
+import { FaUserCircle } from "react-icons/fa";
 import {Receiving} from './receiving'
 import CeleroListPage from './celero_api_list_page'
 import { Link } from 'react-router-dom'
@@ -43,7 +44,7 @@ import withFirebaseAuth from 'react-with-firebase-auth'
 import * as firebase from 'firebase/app';
 import 'firebase/auth';
 import firebaseConfig from './firebaseConfig';
-
+var x = window.matchMedia("(min-width: 768px)")
 const firebaseApp = firebase.initializeApp(firebaseConfig);
 const firebaseAppAuth = firebaseApp.auth();
 const providers = {
@@ -113,12 +114,17 @@ class App extends Component {
 
 <Navbar collapseOnSelect className="Navbar" sticky="top" variant="dark" expand="md" >
 
+<Link to ='/'  style ={{textDecoration: 'none',  color: 'inherit'}}>
+  {user?<Image class ='userlogin'src={user.photoURL} style ={{height:'36px'}}roundedCircle  />:   <IconContext.Provider class ='userlogin'value={{ color: "#9a9a9a", className: "logo",size: '1.75em' }}>
 
-  {user?<Image src={user.photoURL} style ={{height:'35px'}}roundedCircle  />: <p/>}
+    <FaUserCircle/>
+
+    </IconContext.Provider>}
+        </Link>
 
     <Navbar.Brand>
 
-    <IconContext.Provider value={{ color: "#9a9a9a", className: "logo",size: '1.4em' }}>
+    <IconContext.Provider value={{ color: "#9a9a9a", className: "logo",size: '1.5em' }}>
       <Link to ='/'  style ={{textDecoration: 'none',  color: 'inherit'}}>
     <IoMdBarcode/>
     </Link>
@@ -136,7 +142,7 @@ class App extends Component {
     <Link to ='/Putaway' style ={{textDecoration: 'none',  color: '#fff'}}>  <NavDropdown.Item href='/Putaway'> Putaway</NavDropdown.Item></Link>
 </NavDropdown>
       <NavDropdown title="Outbound" id="responsive-nav-dropdown" class="responsive-nav-dropdown" >
-    <Link to ='/Replenishment' style ={{textDecoration: 'none',  color: '#fff'}}>  <NavDropdown.Item href='/Replenishment'>  Replenishment </NavDropdown.Item></Link>
+    <Link to ='/Replenishment' style ={{textDecoration: 'none',  color: '#fff'}}>  <NavDropdown.Item class='replenishment' href='/Replenishment'>  Replenishment </NavDropdown.Item></Link>
         <NavDropdown.Divider / >
         <Link to ='/Pick' style ={{textDecoration: 'none',  color: '#fff'}}>  <NavDropdown.Item href='/Pick'>Pick</NavDropdown.Item></Link>
         <NavDropdown.Divider />

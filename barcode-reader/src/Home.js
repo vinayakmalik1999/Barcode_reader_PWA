@@ -7,6 +7,8 @@ import { Offline, Online } from 'react-detect-offline'
 import { IconContext } from "react-icons";
 import { FaTruckLoading,FaGasPump,FaBoxes,FaWalking,FaTruckMoving,FaUserPlus,FaBoxOpen,FaShippingFast} from "react-icons/fa";
 import './Home.css'
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
 class Home extends Component {
   render() {
     return (
@@ -22,8 +24,9 @@ class Home extends Component {
         </Card.Body>
 
       </Card>
-      <CardGroup >
 
+  <Row>
+   <Col xs={6} md={4} large={3}>
     <Card  border="light" className="text-center p-3">
     <Link to ='/Receiving'  style ={{textDecoration: 'none',  color: 'inherit'}}>
 
@@ -40,7 +43,8 @@ class Home extends Component {
       </Link>
 
     </Card>
-
+</Col>
+ <Col xs={6} md={4} large={3}>
     <Card  border="light" className="text-center p-3">
     <Link to ='/Putaway'  style ={{textDecoration: 'none',  color: 'inherit'}}>
 
@@ -54,9 +58,12 @@ class Home extends Component {
       </Card.Body>
       </Link>
 
+
     </Card>
-      </CardGroup>
-        <CardGroup>
+    </Col>
+
+    <Col xs={6} md={4} large={3}>
+
     <Card  border="light" className="text-center p-3">
     <Link to ='/Replenishment'  style ={{textDecoration: 'none',  color: 'inherit'}}>
       <Card.Body>
@@ -72,6 +79,9 @@ class Home extends Component {
 
         </Link>
     </Card>
+    </Col>
+    <Col xs={6} md={4} large={3}>
+
     <Card  border="light" className="text-center p-3">
     <Link to ='/Pick'  style ={{textDecoration: 'none',  color: 'inherit'}}>
       <Card.Body>
@@ -87,8 +97,9 @@ class Home extends Component {
 
         </Link>
     </Card>
-      </CardGroup>
-        <CardGroup>
+    </Col>
+    <Col xs={6} md={4} large={3}>
+
     <Card  border="light" className="text-center p-3">
     <Link to ='/Multi_Order_Pick'  style ={{textDecoration: 'none',  color: 'inherit'}}>
       <Card.Body>
@@ -104,6 +115,9 @@ class Home extends Component {
 
         </Link>
     </Card>
+    </Col>
+    <Col xs={6} md={4} large={3}>
+
     <Card  border="light" className="text-center p-3">
     <Link to ='/User_Defined_Task'  style ={{textDecoration: 'none',  color: 'inherit'}}>
       <Card.Body>
@@ -119,8 +133,9 @@ class Home extends Component {
 
         </Link>
     </Card>
-      </CardGroup>
-        <CardGroup>
+    </Col>
+    <Col xs={6} md={4} large={3}>
+
     <Card  border="light" className="text-center p-3">
     <Link to ='/Pack'  style ={{textDecoration: 'none',  color: 'inherit'}}>
       <Card.Body>
@@ -136,6 +151,9 @@ class Home extends Component {
 
         </Link>
     </Card>
+    </Col>
+    <Col xs={6} md={4} large={3}>
+
     <Card  border="light" className="text-center p-3">
     <Link to ='/Ship'  style ={{textDecoration: 'none',  color: 'inherit'}}>
       <Card.Body>
@@ -151,7 +169,9 @@ class Home extends Component {
 
         </Link>
     </Card>
-    </CardGroup>
+    </Col>
+    </Row>
+
 
 
 

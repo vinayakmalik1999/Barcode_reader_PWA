@@ -31,7 +31,7 @@ var key =  window.location.search.slice(1).split("&")[0].split("=")[1]
 
 <Card>
 <ListGroup variant="flush">
-<Link to ="/celero_get_api" style={{ textDecoration: 'none' }}> <ListGroup.Item style={{'font-size':'1.1rem'}}>Site : {sessionStorage.getItem(key)} <div style={{ float:'right'}}>> </div></ListGroup.Item></Link>
+<Link to ="/celero_get_api" style={{ textDecoration: 'none' }}> <ListGroup.Item >Site : {sessionStorage.getItem(key)} <div style={{ float:'right'}}>> </div></ListGroup.Item></Link>
 </ListGroup>
 </Card>
     <CardGroup >
