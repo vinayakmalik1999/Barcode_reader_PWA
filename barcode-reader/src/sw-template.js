@@ -38,6 +38,11 @@ workbox.routing.registerRoute(
   'https://kt-dev.outsystemscloud.com/PWABack/rest/BarCode/GetList',
   new workbox.strategies.NetworkFirst(),
 );
+workbox.routing.registerRoute(
+  'https://cors-anywhere.herokuapp.com/https://api.uattest.celeroerp.com/api/Settings/Site/GetActiveSiteList?isDeleted=0',
+  new workbox.strategies.NetworkFirst(),
+);
+
 //Caching is done here !!!
 //message recieve handler
 //Note:'message' is a keyword, you have to use this keyword. It is a string type

@@ -15,6 +15,7 @@ import Nav from 'react-bootstrap/Nav'
 import NavDropdown from 'react-bootstrap/NavDropdown'
 import Form from 'react-bootstrap/Form'
 import FormControl from 'react-bootstrap/FormControl'
+import Image from 'react-bootstrap/Image'
 import Button from 'react-bootstrap/Button'
 import BurgerMenu from "./components/BurgerMenu"
 import Container from "react-bootstrap/Container"
@@ -38,6 +39,17 @@ import Ship from './Ship'
 import Inbound from './Inbound'
 import Purchase_Receipt from './Purchase_Receipt'
 import { spring, AnimatedSwitch } from 'react-router-transition';
+import withFirebaseAuth from 'react-with-firebase-auth'
+import * as firebase from 'firebase/app';
+import 'firebase/auth';
+import firebaseConfig from './firebaseConfig';
+
+const firebaseApp = firebase.initializeApp(firebaseConfig);
+const firebaseAppAuth = firebaseApp.auth();
+const providers = {
+  googleProvider: new firebase.auth.GoogleAuthProvider(),
+};
+
 function mapStyles(styles) {
   return {
     opacity: styles.opacity,
@@ -49,7 +61,7 @@ function mapStyles(styles) {
 function bounce(val) {
   return spring(val, {
     stiffness: 200,
-    damping: 25,
+    damping: 24,
   });
 }
 
@@ -58,12 +70,12 @@ const bounceTransition = {
   // start in a transparent, upscaled state
   atEnter: {
     opacity: 0,
-    scale: 0.25,
+    scale: 0.4,
   },
   // leave in a transparent, downscaled state
   atLeave: {
     opacity: bounce(0),
-    scale: bounce(1.75),
+    scale: bounce(1.6),
   },
   // and rest at an opaque, normally-scaled state
   atActive: {
@@ -72,7 +84,7 @@ const bounceTransition = {
   },
 };
 
- export default class App extends Component {
+class App extends Component {
    constructor(props){
      super(props);
 
@@ -83,23 +95,40 @@ const bounceTransition = {
    }
 
    render(){
+     const {
+  user,
+  signOut,
+  signInWithGoogle,
+} = this.props;
     return (
+
         <Router>
           <div>
+          {
+            user? <p>Hello</p>  : <p>Please sign in.</p>
+          }
+          {
+            user? <button onClick={signOut}>Sign out</button>: <button onClick={signInWithGoogle}>Sign in with Google</button>
+          }
+
+<Navbar collapseOnSelect className="Navbar" sticky="top" variant="dark" expand="md" >
 
 
-<Navbar collapseOnSelect className="Navbar" sticky="top" variant="dark" expand="md">
-  <Navbar.Brand>
+  {user?<Image src={user.photoURL} style ={{height:'35px'}}roundedCircle  />: <p/>}
 
-  <IconContext.Provider value={{ color: "#9a9a9a", className: "logo",size: '1.4em' }}>
-    <Link to ='/'  style ={{textDecoration: 'none',  color: 'inherit'}}>
-  <IoMdBarcode/>
-  </Link>
-  </IconContext.Provider>
-  </Navbar.Brand>
+    <Navbar.Brand>
+
+    <IconContext.Provider value={{ color: "#9a9a9a", className: "logo",size: '1.4em' }}>
+      <Link to ='/'  style ={{textDecoration: 'none',  color: 'inherit'}}>
+    <IoMdBarcode/>
+    </Link>
+    </IconContext.Provider>
+
+    </Navbar.Brand>
   <Navbar.Toggle  aria-controls="responsive-navbar-nav" />
+
   <Navbar.Collapse   id="responsive-navbar-nav">
-    <Nav className="mr-auto" >
+    <Nav className="mx-auto">
     <Link to ='/' style ={{textDecoration: 'none',  color: '#fff'}}>  <Nav.Link href="/">DashBoard </Nav.Link></Link>
     <NavDropdown title="Inbound" id="responsive-nav-dropdown" class="responsive-nav-dropdown" >
 <Link to ='/receiving' style ={{textDecoration: 'none',  color: '#fff'}}>  <NavDropdown.Item href='/receiving'> Receiving</NavDropdown.Item></Link>
@@ -121,14 +150,15 @@ const bounceTransition = {
       </NavDropdown>
       <Link to ='/stuff' style ={{textDecoration: 'none',  color: '#fff'}}>  <Nav.Link href="/">ListPage</Nav.Link></Link>
       <Link to ='/contact' style ={{textDecoration: 'none',  color: '#fff'}}>  <Nav.Link href="/">ScanPage</Nav.Link></Link>
+
     </Nav>
 
   </Navbar.Collapse>
 </Navbar>
-
 <Offline>
-  <OfflineBanner/>
-  </Offline>
+<OfflineBanner/>
+</Offline>
+
 
 
 
@@ -137,6 +167,7 @@ const bounceTransition = {
 
 
             <div className="content">
+
             <AnimatedSwitch
             atEnter={bounceTransition.atEnter}
         atLeave={bounceTransition.atLeave}
@@ -144,6 +175,7 @@ const bounceTransition = {
         mapStyles={mapStyles}
         className="route-wrapper"
         >
+
              <Route exact path="/" component={Home}/>
              <Route path="/stuff" component={ListPage}/>
              <Route path ="/contact" component ={ScanPage}/>
@@ -168,3 +200,8 @@ const bounceTransition = {
   );
 }
 }
+
+export default withFirebaseAuth({
+  providers,
+  firebaseAppAuth,
+})(App);
