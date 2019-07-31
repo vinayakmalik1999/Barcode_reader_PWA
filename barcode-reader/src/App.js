@@ -5,7 +5,8 @@ import {
   Route,
   NavLink,
   BrowserRouter as Router,
-  Switch
+  Switch,
+  Redirect
 } from "react-router-dom";
 import Home from "./Home";
 import ListPage from "./ListPage";
@@ -105,28 +106,25 @@ class App extends Component {
 
         <Router>
           <div>
-          {
-            user? <p>Hello</p>  : <p>Please sign in.</p>
-          }
-          {
-            user? <button onClick={signOut}>Sign out</button>: <button onClick={signInWithGoogle}>Sign in with Google</button>
-          }
+
 
 <Navbar collapseOnSelect className="Navbar" sticky="top" variant="dark" expand="md" >
 
-<Link to ='/'  style ={{textDecoration: 'none',  color: 'inherit'}}>
-  {user?<Image class ='userlogin'src={user.photoURL} style ={{height:'36px'}}roundedCircle  />:   <IconContext.Provider class ='userlogin'value={{ color: "#9a9a9a", className: "logo",size: '1.75em' }}>
 
+  {user?<Button class = 'signIn' variant="dark" onClick={signOut}> <Image class ='userlogin'   src={user.photoURL} style ={{height:'32px'}}roundedCircle  /></Button>:   <IconContext.Provider class ='userlogin'  value={{ color: "#9a9a9a", className: "logo",size: '1.75em' }}>
+<Button class = 'signIn' variant="dark" onClick={signInWithGoogle}>
     <FaUserCircle/>
-
+</Button>
     </IconContext.Provider>}
-        </Link>
+
 
     <Navbar.Brand>
 
-    <IconContext.Provider value={{ color: "#9a9a9a", className: "logo",size: '1.5em' }}>
+    <IconContext.Provider value={{ color: "#9a9a9a", className: "logo",size: '1.75em' }}>
       <Link to ='/'  style ={{textDecoration: 'none',  color: 'inherit'}}>
+      <Button class = 'signIn' variant="dark" >
     <IoMdBarcode/>
+    </Button>
     </Link>
     </IconContext.Provider>
 

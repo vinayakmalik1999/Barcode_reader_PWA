@@ -8,7 +8,8 @@ import { FaReceipt } from "react-icons/fa";
 import { FaBoxes } from "react-icons/fa";
 import { IconContext } from "react-icons";
 import './receiving.css'
-
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
 export const Receiving = () => {
 var key =  window.location.search.slice(1).split("&")[0].split("=")[1]
   return(
@@ -34,8 +35,8 @@ var key =  window.location.search.slice(1).split("&")[0].split("=")[1]
 <Link to ="/celero_get_api" style={{ textDecoration: 'none' }}> <ListGroup.Item >Site : {sessionStorage.getItem(key)} <div style={{ float:'right'}}>> </div></ListGroup.Item></Link>
 </ListGroup>
 </Card>
-    <CardGroup >
 
+<CardGroup>
   <Card  border="light" className="text-center p-3">
   <Link to ='/Inbound'  style ={{textDecoration: 'none',  color: 'inherit'}}>
 
