@@ -15,6 +15,8 @@ class Home extends Component {
 
 
       <div>
+      <Row>
+      <Col>
       <Card  border="light" className="text-center p-3">
 
         <Card.Body>
@@ -24,6 +26,8 @@ class Home extends Component {
         </Card.Body>
 
       </Card>
+      </Col>
+      </Row>
 
   <Row>
    <Col xs={6} md={4} large={3}>

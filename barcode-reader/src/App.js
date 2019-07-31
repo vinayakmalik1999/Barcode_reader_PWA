@@ -14,6 +14,7 @@ import ScanPage from "./ScanPage";
 import Navbar from 'react-bootstrap/Navbar'
 import Nav from 'react-bootstrap/Nav'
 import NavDropdown from 'react-bootstrap/NavDropdown'
+import Dropdown from 'react-bootstrap/Dropdown'
 import Form from 'react-bootstrap/Form'
 import FormControl from 'react-bootstrap/FormControl'
 import Image from 'react-bootstrap/Image'
@@ -110,17 +111,23 @@ class App extends Component {
 
 <Navbar collapseOnSelect className="Navbar" sticky="top" variant="dark" expand="md" >
 
-
-  {user?<Button class = 'signIn' variant="dark" onClick={signOut}> <Image class ='userlogin'   src={user.photoURL} style ={{height:'32px'}}roundedCircle  /></Button>:   <IconContext.Provider class ='userlogin'  value={{ color: "#9a9a9a", className: "logo",size: '1.75em' }}>
-<Button class = 'signIn' variant="dark" onClick={signInWithGoogle}>
+<Dropdown>
+  <Dropdown.Toggle variant="success" id="dropdown-basic">
+  {user? <Image class ='userlogin'   src={user.photoURL} style ={{height:'31px'}}roundedCircle  />:   <IconContext.Provider class ='userlogin'  value={{ color: "#9a9a9a", className: "logo",size: '1.75em' }}>
     <FaUserCircle/>
-</Button>
     </IconContext.Provider>}
+  </Dropdown.Toggle>
+
+  <Dropdown.Menu>
+  {user?<Dropdown.Item onClick={signOut}>Sign Out</Dropdown.Item>:<Dropdown.Item onClick={signInWithGoogle}>Sign In With Google</Dropdown.Item>}
+  </Dropdown.Menu>
+</Dropdown>
+
 
 
     <Navbar.Brand>
 
-    <IconContext.Provider value={{ color: "#9a9a9a", className: "logo",size: '1.75em' }}>
+    <IconContext.Provider value={{ color: "#9a9a9a", className: "logo",size: '1.8em' }}>
       <Link to ='/'  style ={{textDecoration: 'none',  color: 'inherit'}}>
       <Button class = 'signIn' variant="dark" >
     <IoMdBarcode/>
