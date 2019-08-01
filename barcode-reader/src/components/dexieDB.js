@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+
 import Dexie from 'dexie';
 
 const db = new Dexie('OfflineDetails');

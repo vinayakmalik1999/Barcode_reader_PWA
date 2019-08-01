@@ -1,10 +1,5 @@
 import React, { Component } from "react";
-import Container from 'react-bootstrap/Container'
-import Row from 'react-bootstrap/Row'
-import Col from 'react-bootstrap/Col'
-import Button from 'react-bootstrap/Button'
-import OfflineBanner from './components/OfflineBanner.js'
-import { Offline, Online } from 'react-detect-offline'
+
 import javascriptBarcodeReader from 'javascript-barcode-reader'
 class ScanPage extends Component {
 constructor(props){
@@ -40,7 +35,7 @@ console.log(err)
 
     return (
       <div>
-    
+
 
        <input id="uploadImage" type="file" accept="image/bmp,image/jpeg,image/png,image/gif"  onChange={this.onChanged}/>
 

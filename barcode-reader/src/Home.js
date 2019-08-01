@@ -1,20 +1,19 @@
 import React, { Component } from "react";
 import { Link } from 'react-router-dom'
-import {ListGroup,Card,CardGroup} from 'react-bootstrap'
-import ControlledCarousel from './components/ControlledCarousel.js'
-import OfflineBanner from './components/OfflineBanner.js'
-import { Offline, Online } from 'react-detect-offline'
+import {Card} from 'react-bootstrap'
 import { IconContext } from "react-icons";
 import { FaTruckLoading,FaGasPump,FaBoxes,FaWalking,FaTruckMoving,FaUserPlus,FaBoxOpen,FaShippingFast} from "react-icons/fa";
 import './Home.css'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
+import Notifications from './notification.js'
 class Home extends Component {
   render() {
     return (
 
 
       <div>
+      <Notifications/>
       <Row>
       <Col>
       <Card  border="light" className="text-center p-3">

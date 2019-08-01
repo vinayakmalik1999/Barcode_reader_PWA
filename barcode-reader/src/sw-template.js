@@ -157,6 +157,35 @@ function sendDataToServer () {
     }
   }
 }
+//*************** OFFLINE FORM SUBMIT FINISHES HERE*************************************
+
+//notification click handler
+self.addEventListener('notificationclick', (event) => {
+let notification = event.notification
+let primaryKey = notification.data.primaryKey;
+const action = event.action;
+
+  if (action === 'close') {
+    notification.close();
+  } else {
+    clients.openWindow('/');
+    notification.close();
+  }
+});
+self.addEventListener('push', event => {
+  const options = {
+    body: 'This notification was generated from a push!',
+    icon: 'images/notification-flat.png',
+    vibrate: [100, 50, 100],
+    data: {
+      dateOfArrival: Date.now(),
+      primaryKey: 1
+    }
+  }
+  event.waitUntil(
+    self.registration.showNotification('Push Notification', options)
+  );
+})
 self.skipWaiting().then(() =>{
   clients.claim();
 })

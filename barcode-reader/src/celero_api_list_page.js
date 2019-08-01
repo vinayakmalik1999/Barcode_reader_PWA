@@ -1,13 +1,12 @@
 import React, { Component } from "react"
 import axios from 'axios'
-import OfflineBanner from './components/OfflineBanner.js'
-import { Offline, Online } from 'react-detect-offline'
+
 import { Link } from 'react-router-dom'
 import Spinner from 'react-bootstrap/Spinner'
-import { IconContext } from "react-icons";
 
 
-import {ListGroup,Card,CardColumns} from 'react-bootstrap'
+
+import {ListGroup,Card} from 'react-bootstrap'
 
 
 export default class CeleroListPage extends Component {

@@ -8,8 +8,6 @@ import { FaReceipt } from "react-icons/fa";
 import { FaBoxes } from "react-icons/fa";
 import { IconContext } from "react-icons";
 import './receiving.css'
-import Row from 'react-bootstrap/Row'
-import Col from 'react-bootstrap/Col'
 export const Receiving = () => {
 var key =  window.location.search.slice(1).split("&")[0].split("=")[1]
   return(

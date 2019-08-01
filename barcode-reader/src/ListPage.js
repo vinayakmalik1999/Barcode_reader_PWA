@@ -1,14 +1,13 @@
   import React, { Component } from 'react'
 import axios from 'axios'
-import { Link } from 'react-router-dom'
+
 import Table from 'react-bootstrap/Table'
 import Button from 'react-bootstrap/Button'
 import Card from 'react-bootstrap/Card'
-import Alert from './components/Alert.js'
 import InputGroup from 'react-bootstrap/InputGroup'
 import FormControl from 'react-bootstrap/FormControl'
 import Spinner from 'react-bootstrap/Spinner'
-import { Offline, Online } from 'react-detect-offline'
+import { Offline } from 'react-detect-offline'
 
 import db from './components/dexieDB.js'
 
@@ -74,12 +73,12 @@ return;
        this.setState({formValue:''})
 
      }).catch(error => {
-       var pushValues = []
+
         navigator.serviceWorker.controller.postMessage(this.state.formValue)
 
        console.log("Offline sending data to SW");
        console.log(this.state.offlineSubmitValue);
-     db.table('formValues').add({Code:this.state.offlineSubmitValue,createdDate:'2019-07-25'}).then(() =>{
+     db.table('formValues').add({Code:this.state.offlineSubmitValue,createdDate:Date.now()}).then(() =>{
       db.formValues.toArray( (array) =>{
         this.setState({offlineUser:array});
         console.log(this.state.offlineUser)

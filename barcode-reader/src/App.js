@@ -3,10 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css'
 import {
   Route,
-  NavLink,
   BrowserRouter as Router,
-  Switch,
-  Redirect
 } from "react-router-dom";
 import Home from "./Home";
 import ListPage from "./ListPage";
@@ -15,22 +12,16 @@ import Navbar from 'react-bootstrap/Navbar'
 import Nav from 'react-bootstrap/Nav'
 import NavDropdown from 'react-bootstrap/NavDropdown'
 import Dropdown from 'react-bootstrap/Dropdown'
-import Form from 'react-bootstrap/Form'
-import FormControl from 'react-bootstrap/FormControl'
 import Image from 'react-bootstrap/Image'
 import Button from 'react-bootstrap/Button'
-import BurgerMenu from "./components/BurgerMenu"
-import Container from "react-bootstrap/Container"
 import ErrorPage from './ErrorPage'
-import InfoPage from './info'
-import {Collapse} from 'react-bootstrap'
 import { IoMdBarcode } from "react-icons/io";
 import { IconContext } from "react-icons";
 import { FaUserCircle } from "react-icons/fa";
 import {Receiving} from './receiving'
 import CeleroListPage from './celero_api_list_page'
 import { Link } from 'react-router-dom'
-import { Offline, Online } from 'react-detect-offline'
+import { Offline } from 'react-detect-offline'
 import OfflineBanner from './components/OfflineBanner.js'
 import Putaway from './Putaway'
 import Replenishment from './Replenishment'
@@ -46,7 +37,6 @@ import withFirebaseAuth from 'react-with-firebase-auth'
 import * as firebase from 'firebase/app';
 import 'firebase/auth';
 import firebaseConfig from './firebaseConfig';
-var x = window.matchMedia("(min-width: 768px)")
 const firebaseApp = firebase.initializeApp(firebaseConfig);
 const firebaseAppAuth = firebaseApp.auth();
 const providers = {
@@ -73,12 +63,12 @@ const bounceTransition = {
   // start in a transparent, upscaled state
   atEnter: {
     opacity: 0,
-    scale: 0.4,
+    scale: 1.25,
   },
   // leave in a transparent, downscaled state
   atLeave: {
     opacity: bounce(0),
-    scale: bounce(1.6),
+    scale: bounce(0.75),
   },
   // and rest at an opaque, normally-scaled state
   atActive: {

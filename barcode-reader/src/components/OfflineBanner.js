@@ -1,4 +1,4 @@
-import React, { Component }  from 'react';
+import React  from 'react';
 import Alert from 'react-bootstrap/Alert';
 class OfflineBanner extends React.Component {
   constructor(props) {
@@ -9,7 +9,7 @@ class OfflineBanner extends React.Component {
   }
   render() {
     const handleDismiss = () => this.setState({ show: false });
-    const handleShow = () => this.setState({ show: true });
+    
     if (this.state.show) {
       return (
         <Alert variant="info" onClose={handleDismiss} dismissible>
