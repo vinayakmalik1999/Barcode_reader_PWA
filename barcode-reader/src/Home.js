@@ -15,7 +15,7 @@ class Home extends Component {
       <div>
       <Notifications/>
       <Row>
-      <Col>
+      <Col xs={12}>
       <Card  border="light" className="text-center p-3">
 
         <Card.Body>
@@ -26,9 +26,9 @@ class Home extends Component {
 
       </Card>
       </Col>
-      </Row>
 
-  <Row>
+
+
    <Col xs={6} md={4} large={3}>
     <Card  border="light" className="text-center p-3">
     <Link to ='/Receiving'  style ={{textDecoration: 'none',  color: 'inherit'}}>

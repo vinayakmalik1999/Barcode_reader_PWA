@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 const options = {
-  body: 'First notification!',
-  icon: 'images/notification-flat.png',
+  body: 'Thank you for Downloading!',
+  icon: '/static-resources/barcode192x192.png',
   vibrate: [100, 50, 100],
   data: {
     dateOfArrival: Date.now(),
@@ -18,7 +18,7 @@ Notification.requestPermission((status) => {
   if (Notification.permission === 'granted') {
     if('serviceWorker' in Navigator){
     navigator.serviceWorker.getRegistration().then(function(reg) {
-      reg.showNotification('Hello world!', options);
+      reg.showNotification('Welcome!', options);
     });
   }
   }

@@ -52,7 +52,7 @@ var key =  window.location.search.slice(1).split("&")[0].split("=")[1]
 
   </Card>
   <Card  border="light" className="text-center p-3">
-  <Link to ='/Purchase_Receipt'  style ={{textDecoration: 'none',  color: 'inherit'}}>
+  <Link to ='/Purchase_Receipt' style ={{textDecoration: 'none',  color: 'inherit'}}>
     <Card.Body>
       <Card.Title>
       <IconContext.Provider value={{ color: "#000", className: "inbound",size: '2em' }}>

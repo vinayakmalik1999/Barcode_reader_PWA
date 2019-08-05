@@ -6,11 +6,13 @@ import {
   BrowserRouter as Router,
 } from "react-router-dom";
 import Home from "./Home";
+import { MdMenu,MdClose } from "react-icons/md";
 import ListPage from "./ListPage";
 import ScanPage from "./ScanPage";
 import Navbar from 'react-bootstrap/Navbar'
 import Nav from 'react-bootstrap/Nav'
 import NavDropdown from 'react-bootstrap/NavDropdown'
+import Container from 'react-bootstrap/Container'
 import Dropdown from 'react-bootstrap/Dropdown'
 import Image from 'react-bootstrap/Image'
 import Button from 'react-bootstrap/Button'
@@ -32,6 +34,7 @@ import Pack from './Pack'
 import Ship from './Ship'
 import Inbound from './Inbound'
 import Purchase_Receipt from './Purchase_Receipt'
+import BurgerMenu from './components/BurgerMenu'
 import { spring, AnimatedSwitch } from 'react-router-transition';
 import withFirebaseAuth from 'react-with-firebase-auth'
 import * as firebase from 'firebase/app';
@@ -63,12 +66,12 @@ const bounceTransition = {
   // start in a transparent, upscaled state
   atEnter: {
     opacity: 0,
-    scale: 1.25,
+    scale: 1.2,
   },
   // leave in a transparent, downscaled state
   atLeave: {
     opacity: bounce(0),
-    scale: bounce(0.75),
+    scale: bounce(0.8),
   },
   // and rest at an opaque, normally-scaled state
   atActive: {
@@ -82,10 +85,20 @@ class App extends Component {
      super(props);
 
    this.state = {
-   isOpen: true
+   isOpen: true,
+
    };
 
    }
+
+ _getNavbarToggleIcon() {
+    return  (
+      <div><IconContext.Provider value={{ color: "#9a9a9a", className: "logo",size: '1.8em' }}>
+        <MdMenu/>
+        </IconContext.Provider>
+        </div>
+    );
+}
 
    render(){
      const {
@@ -100,6 +113,35 @@ class App extends Component {
 
 
 <Navbar collapseOnSelect className="Navbar" sticky="top" variant="dark" expand="md" >
+<Navbar.Toggle pullleft children={this._getNavbarToggleIcon()} onClick={this._onNavbarToggleClick} aria-controls="responsive-navbar-nav"/>
+
+<Navbar.Collapse   id="responsive-navbar-nav">
+  <Nav className="ml-auto">
+  <Link to ='/' style ={{textDecoration: 'none',  color: '#fff'}}>  <Nav.Link href="/">DashBoard </Nav.Link></Link>
+  <NavDropdown title="Inbound" id="responsive-nav-dropdown" class="responsive-nav-dropdown" >
+<Link to ='/receiving' style ={{textDecoration: 'none',  color: '#fff'}}>  <NavDropdown.Item href='/receiving'> Receiving</NavDropdown.Item></Link>
+<NavDropdown.Divider / >
+  <Link to ='/Putaway' style ={{textDecoration: 'none',  color: '#fff'}}>  <NavDropdown.Item href='/Putaway'> Putaway</NavDropdown.Item></Link>
+</NavDropdown>
+    <NavDropdown title="Outbound" id="responsive-nav-dropdown" class="responsive-nav-dropdown" >
+  <Link to ='/Replenishment' style ={{textDecoration: 'none',  color: '#fff'}}>  <NavDropdown.Item class='replenishment' href='/Replenishment'>  Replenishment </NavDropdown.Item></Link>
+      <NavDropdown.Divider / >
+      <Link to ='/Pick' style ={{textDecoration: 'none',  color: '#fff'}}>  <NavDropdown.Item href='/Pick'>Pick</NavDropdown.Item></Link>
+      <NavDropdown.Divider />
+  <Link to ='/Multi_Order_Pick' style ={{textDecoration: 'none',  color: '#fff'}}>     <NavDropdown.Item href='/Multi_Order_Pick'>Multi-Order Pick</NavDropdown.Item></Link>
+      <NavDropdown.Divider />
+      <Link to ='/User_Defined_Task' style ={{textDecoration: 'none',  color: '#fff'}}> <NavDropdown.Item href='/Multi_Order_Pick' >User Defined Task</NavDropdown.Item></Link>
+      <NavDropdown.Divider />
+      <Link to ='/Pack' style ={{textDecoration: 'none',  color: '#fff'}}> <NavDropdown.Item href='/Multi_Order_Pick' >Pack</NavDropdown.Item></Link>
+      <NavDropdown.Divider />
+      <Link to ='/Ship' style ={{textDecoration: 'none',  color: '#fff'}}> <NavDropdown.Item href='/Multi_Order_Pick' >Ship</NavDropdown.Item></Link>
+    </NavDropdown>
+    <Link to ='/stuff' style ={{textDecoration: 'none',  color: '#fff'}}>  <Nav.Link href="/">ListPage</Nav.Link></Link>
+    <Link to ='/contact' style ={{textDecoration: 'none',  color: '#fff'}}>  <Nav.Link href="/">ScanPage</Nav.Link></Link>
+
+  </Nav>
+
+</Navbar.Collapse>
 
 <Dropdown>
   <Dropdown.Toggle variant="success" id="dropdown-basic">
@@ -126,35 +168,7 @@ class App extends Component {
     </IconContext.Provider>
 
     </Navbar.Brand>
-  <Navbar.Toggle  aria-controls="responsive-navbar-nav" />
 
-  <Navbar.Collapse   id="responsive-navbar-nav">
-    <Nav className="mx-auto">
-    <Link to ='/' style ={{textDecoration: 'none',  color: '#fff'}}>  <Nav.Link href="/">DashBoard </Nav.Link></Link>
-    <NavDropdown title="Inbound" id="responsive-nav-dropdown" class="responsive-nav-dropdown" >
-<Link to ='/receiving' style ={{textDecoration: 'none',  color: '#fff'}}>  <NavDropdown.Item href='/receiving'> Receiving</NavDropdown.Item></Link>
-<NavDropdown.Divider / >
-    <Link to ='/Putaway' style ={{textDecoration: 'none',  color: '#fff'}}>  <NavDropdown.Item href='/Putaway'> Putaway</NavDropdown.Item></Link>
-</NavDropdown>
-      <NavDropdown title="Outbound" id="responsive-nav-dropdown" class="responsive-nav-dropdown" >
-    <Link to ='/Replenishment' style ={{textDecoration: 'none',  color: '#fff'}}>  <NavDropdown.Item class='replenishment' href='/Replenishment'>  Replenishment </NavDropdown.Item></Link>
-        <NavDropdown.Divider / >
-        <Link to ='/Pick' style ={{textDecoration: 'none',  color: '#fff'}}>  <NavDropdown.Item href='/Pick'>Pick</NavDropdown.Item></Link>
-        <NavDropdown.Divider />
-    <Link to ='/Multi_Order_Pick' style ={{textDecoration: 'none',  color: '#fff'}}>     <NavDropdown.Item href='/Multi_Order_Pick'>Multi-Order Pick</NavDropdown.Item></Link>
-        <NavDropdown.Divider />
-        <Link to ='/User_Defined_Task' style ={{textDecoration: 'none',  color: '#fff'}}> <NavDropdown.Item href='/Multi_Order_Pick' >User Defined Task</NavDropdown.Item></Link>
-        <NavDropdown.Divider />
-        <Link to ='/Pack' style ={{textDecoration: 'none',  color: '#fff'}}> <NavDropdown.Item href='/Multi_Order_Pick' >Pack</NavDropdown.Item></Link>
-        <NavDropdown.Divider />
-        <Link to ='/Ship' style ={{textDecoration: 'none',  color: '#fff'}}> <NavDropdown.Item href='/Multi_Order_Pick' >Ship</NavDropdown.Item></Link>
-      </NavDropdown>
-      <Link to ='/stuff' style ={{textDecoration: 'none',  color: '#fff'}}>  <Nav.Link href="/">ListPage</Nav.Link></Link>
-      <Link to ='/contact' style ={{textDecoration: 'none',  color: '#fff'}}>  <Nav.Link href="/">ScanPage</Nav.Link></Link>
-
-    </Nav>
-
-  </Navbar.Collapse>
 </Navbar>
 <Offline>
 <OfflineBanner/>
