@@ -1,6 +1,6 @@
 {
   "short_name": "BarcodeReader",
-  "name": "Barcode Reader PWA",
+  "name": "Celero PWA",
   "description": "A quirky barcode app",
   "icons": [
     {"src": "./barcode192x192.png",

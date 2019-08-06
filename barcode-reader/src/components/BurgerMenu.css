@@ -1,15 +1,15 @@
 /* Position and sizing of burger button */
 .bm-burger-button {
   position: fixed;
-  width: 36px;
-  height: 30px;
-  left: 12px;
-  top: 12px;
+  width: 26px;
+  height: 26px;
+  left: 17px;
+  top: 17px;
 }
 
 /* Color/shape of burger icon bars */
 .bm-burger-bars {
-  background: #f8f9fa;
+  background: #d0cccc;
 }
 
 /* Color/shape of burger icon bars on hover*/
@@ -43,7 +43,7 @@ Note: Beware of modifying this element as it can break the animations - you shou
 
 /* General sidebar styles */
 .bm-menu {
-  background: #373a47;
+  background: #000000;
   height: 100%;
   font-size: 1.15em;
 }
@@ -64,8 +64,23 @@ Note: Beware of modifying this element as it can break the animations - you shou
 .bm-item {
   display: inline-block;
 }
+@media only screen and (min-width: 768px){
+  .bm-burger-button {
+    position: fixed;
+  visibility: hidden;
+
+  }
+
+}
 
 /* Styling of overlay */
 .bm-overlay {
   background: rgba(0, 0, 0, 0.3);
+  margin-left: -15px;
+  margin-top: -28px;
+}
+
+a:hover {
+    color: #909090;
+    text-decoration: underline;
 }

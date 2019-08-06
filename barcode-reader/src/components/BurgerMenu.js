@@ -15,14 +15,13 @@ class BurgerMenu extends Component {
 
   render () {
     return (
-      <Menu >
+
 <WithIcons/>
 
 
 
 
-        
-      </Menu>
+
 
     );
   }

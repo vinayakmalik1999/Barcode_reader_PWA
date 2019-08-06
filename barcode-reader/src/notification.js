@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 const options = {
-  body: 'Thank you for Downloading!',
+  body: 'Thank you for Downloading the App!',
   icon: '/static-resources/barcode192x192.png',
   vibrate: [100, 50, 100],
   data: {

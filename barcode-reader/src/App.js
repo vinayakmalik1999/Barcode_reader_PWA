@@ -4,9 +4,11 @@ import './App.css'
 import {
   Route,
   BrowserRouter as Router,
+
 } from "react-router-dom";
+import  {BrowserHistory}from 'react-router'
 import Home from "./Home";
-import { MdMenu,MdClose } from "react-icons/md";
+import { MdMenu,MdClose,MdKeyboardBackspace } from "react-icons/md";
 import ListPage from "./ListPage";
 import ScanPage from "./ScanPage";
 import Navbar from 'react-bootstrap/Navbar'
@@ -32,6 +34,7 @@ import Multi_Order_Pick from './Multi_Order_Pick'
 import User_Defined_Task from './User_Defined_Task'
 import Pack from './Pack'
 import Ship from './Ship'
+import celero from './celero_white.png'
 import Inbound from './Inbound'
 import Purchase_Receipt from './Purchase_Receipt'
 import BurgerMenu from './components/BurgerMenu'
@@ -48,8 +51,8 @@ const providers = {
 
 function mapStyles(styles) {
   return {
-    opacity: styles.opacity,
-    transform: `scale(${styles.scale})`,
+
+    transform: `translateX(${styles.offset}%)`,
   };
 }
 
@@ -65,18 +68,15 @@ function bounce(val) {
 const bounceTransition = {
   // start in a transparent, upscaled state
   atEnter: {
-    opacity: 0,
-    scale: 1.2,
+offset:100
   },
   // leave in a transparent, downscaled state
   atLeave: {
-    opacity: bounce(0),
-    scale: bounce(0.8),
+  offset:-100
   },
   // and rest at an opaque, normally-scaled state
   atActive: {
-    opacity: bounce(1),
-    scale: bounce(1),
+  offset:0
   },
 };
 
@@ -90,15 +90,11 @@ class App extends Component {
    };
 
    }
+backClick(){
+  this.props.router.goBack()
 
- _getNavbarToggleIcon() {
-    return  (
-      <div><IconContext.Provider value={{ color: "#9a9a9a", className: "logo",size: '1.8em' }}>
-        <MdMenu/>
-        </IconContext.Provider>
-        </div>
-    );
 }
+
 
    render(){
      const {
@@ -112,11 +108,22 @@ class App extends Component {
           <div>
 
 
-<Navbar collapseOnSelect className="Navbar" sticky="top" variant="dark" expand="md" >
-<Navbar.Toggle pullleft children={this._getNavbarToggleIcon()} onClick={this._onNavbarToggleClick} aria-controls="responsive-navbar-nav"/>
+<Navbar  className="Navbar"  sticky="top" variant="dark" expand="md" >
 
+<BurgerMenu/>
+<Navbar.Brand>
+
+  <Link to ='/'  style ={{textDecoration: 'none',  color: 'inherit'}}>
+  <img
+         src= {celero}
+         className="d-inline-block align-top"
+         alt="React Bootstrap logo"
+       />
+</Link>
+
+</Navbar.Brand>
 <Navbar.Collapse   id="responsive-navbar-nav">
-  <Nav className="ml-auto">
+  <Nav className="mx-auto">
   <Link to ='/' style ={{textDecoration: 'none',  color: '#fff'}}>  <Nav.Link href="/">DashBoard </Nav.Link></Link>
   <NavDropdown title="Inbound" id="responsive-nav-dropdown" class="responsive-nav-dropdown" >
 <Link to ='/receiving' style ={{textDecoration: 'none',  color: '#fff'}}>  <NavDropdown.Item href='/receiving'> Receiving</NavDropdown.Item></Link>
@@ -143,36 +150,28 @@ class App extends Component {
 
 </Navbar.Collapse>
 
-<Dropdown>
-  <Dropdown.Toggle variant="success" id="dropdown-basic">
-  {user? <Image class ='userlogin'   src={user.photoURL} style ={{height:'31px'}}roundedCircle  />:   <IconContext.Provider class ='userlogin'  value={{ color: "#9a9a9a", className: "logo",size: '1.75em' }}>
-    <FaUserCircle/>
-    </IconContext.Provider>}
-  </Dropdown.Toggle>
-
-  <Dropdown.Menu>
-  {user?<Dropdown.Item onClick={signOut}>Sign Out</Dropdown.Item>:<Dropdown.Item onClick={signInWithGoogle}>Sign In With Google</Dropdown.Item>}
-  </Dropdown.Menu>
-</Dropdown>
 
 
 
-    <Navbar.Brand>
 
-    <IconContext.Provider value={{ color: "#9a9a9a", className: "logo",size: '1.8em' }}>
-      <Link to ='/'  style ={{textDecoration: 'none',  color: 'inherit'}}>
-      <Button class = 'signIn' variant="dark" >
-    <IoMdBarcode/>
-    </Button>
-    </Link>
-    </IconContext.Provider>
 
-    </Navbar.Brand>
+    <Dropdown>
+      <Dropdown.Toggle variant="success" id="dropdown-basic">
+      {user? <Image class ='userlogin'   src={user.photoURL} style ={{height:'31px'}}roundedCircle  />:   <IconContext.Provider class ='userlogin'  value={{ color: "#d0cccc", className: "logo",size: '1.75em' }}>
+        <FaUserCircle/>
+        </IconContext.Provider>}
+      </Dropdown.Toggle>
+
+      <Dropdown.Menu>
+      {user?<Dropdown.Item onClick={signOut}>Sign Out</Dropdown.Item>:<Dropdown.Item onClick={signInWithGoogle}>Sign In With Google</Dropdown.Item>}
+      </Dropdown.Menu>
+    </Dropdown>
 
 </Navbar>
 <Offline>
 <OfflineBanner/>
 </Offline>
+
 
 
 
@@ -210,6 +209,7 @@ class App extends Component {
              <Route component={ErrorPage}/>
       </AnimatedSwitch>
               </div>
+
           </div>
         </Router>
   );

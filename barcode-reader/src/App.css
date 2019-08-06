@@ -50,7 +50,7 @@ size:
   color:transparent;
   background-color:transparent;
   border-color:transparent;
-  margin-left: -0.3em;
+  margin-left: -3.45em;
     box-shadow:0 0 0 0 rgba(0, 0, 0, 0.5);
     padding-bottom: 0;
     padding-top: 0;
@@ -65,11 +65,7 @@ size:
     box-shadow: 0 0 0 0  rgba(245, 78, 0, 0.5);
 }
 @media only screen and (min-width: 768px){
-.rounded-circle{
-  position: relative;
-  visibility: hidden;
-  margin-left: -50px;
-}
+
 
 }
 .route-wrapper {
