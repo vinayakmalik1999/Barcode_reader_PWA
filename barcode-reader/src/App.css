@@ -1,6 +1,7 @@
 .Navbar{
   background-color:#000;
   color:rgba(254, 254, 254, 1);
+
 }
 .navbar-toggler{
     border-color: transparent
@@ -64,7 +65,7 @@ size:
 .btn-success:not(:disabled):not(.disabled).active:focus, .btn-success:not(:disabled):not(.disabled):active:focus, .show>.btn-success.dropdown-toggle:focus {
     box-shadow: 0 0 0 0  rgba(245, 78, 0, 0.5);
 }
-@media only screen and (min-width: 768px){
+@media only screen and (max-width: 768px){
 
 
 }
@@ -75,4 +76,8 @@ size:
 .route-wrapper > div {
   position: absolute;
    width: 100%;
+}
+.navbar-brand{
+
+
 }

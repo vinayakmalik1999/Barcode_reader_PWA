@@ -105,13 +105,13 @@ backClick(){
     return (
 
         <Router>
-          <div>
 
 
-<Navbar  className="Navbar"  sticky="top" variant="dark" expand="md" >
 
+<Navbar  className="Navbar"  variant="dark" fixed='top' expand="md" >
 <BurgerMenu/>
-<Navbar.Brand>
+
+<Navbar.Brand >
 
   <Link to ='/'  style ={{textDecoration: 'none',  color: 'inherit'}}>
   <img
@@ -122,7 +122,7 @@ backClick(){
 </Link>
 
 </Navbar.Brand>
-<Navbar.Collapse   id="responsive-navbar-nav">
+<Navbar.Collapse   id="basic-navbar-nav">
   <Nav className="mx-auto">
   <Link to ='/' style ={{textDecoration: 'none',  color: '#fff'}}>  <Nav.Link href="/">DashBoard </Nav.Link></Link>
   <NavDropdown title="Inbound" id="responsive-nav-dropdown" class="responsive-nav-dropdown" >
@@ -156,8 +156,8 @@ backClick(){
 
 
     <Dropdown>
-      <Dropdown.Toggle variant="success" id="dropdown-basic">
-      {user? <Image class ='userlogin'   src={user.photoURL} style ={{height:'31px'}}roundedCircle  />:   <IconContext.Provider class ='userlogin'  value={{ color: "#d0cccc", className: "logo",size: '1.75em' }}>
+      <Dropdown.Toggle variant="success" id="dropdown-responsive">
+      {user? <Image class ='userlogin'   src={user.photoURL} style ={{height:'36px'}}roundedCircle  />:   <IconContext.Provider class ='userlogin'  value={{ color: "#d0cccc", className: "logo",size: '1.75em' }}>
         <FaUserCircle/>
         </IconContext.Provider>}
       </Dropdown.Toggle>
@@ -168,6 +168,7 @@ backClick(){
     </Dropdown>
 
 </Navbar>
+<br/><br/>
 <Offline>
 <OfflineBanner/>
 </Offline>
@@ -180,7 +181,7 @@ backClick(){
 
 
 
-            <div className="content">
+
 
             <AnimatedSwitch
             atEnter={bounceTransition.atEnter}
@@ -208,9 +209,9 @@ backClick(){
 
              <Route component={ErrorPage}/>
       </AnimatedSwitch>
-              </div>
 
-          </div>
+
+
         </Router>
   );
 }

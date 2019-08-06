@@ -101,7 +101,7 @@ const Navigation = () => {
 
   return (
     <Menu
-    customBurgerIcon={  <div><IconContext.Provider value={{ color: "#d0cccc", className: "logo",size: '1.8em' }}>
+    customBurgerIcon={  <div><IconContext.Provider style ={{height:'10px'}}value={{ color: "#d0cccc", className: "logo",size: '2em'  }}>
         <MdMenu/>
         </IconContext.Provider>
         </div> }
