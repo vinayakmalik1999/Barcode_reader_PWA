@@ -43,7 +43,7 @@ workbox.routing.registerRoute(
   new workbox.strategies.NetworkFirst(),
 );
 
-//Caching is done here !!!
+//******************************Caching is done here !!! *******************************
 //message recieve handler
 //Note:'message' is a keyword, you have to use this keyword. It is a string type
 //of keyword.

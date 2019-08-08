@@ -47,6 +47,7 @@ const firebaseApp = firebase.initializeApp(firebaseConfig);
 const firebaseAppAuth = firebaseApp.auth();
 const providers = {
   googleProvider: new firebase.auth.GoogleAuthProvider(),
+  facebookProvider: new firebase.auth.FacebookAuthProvider(),
 };
 
 function mapStyles(styles) {
@@ -101,6 +102,7 @@ backClick(){
   user,
   signOut,
   signInWithGoogle,
+  signInWithFacebook,
 } = this.props;
     return (
 
@@ -155,7 +157,7 @@ backClick(){
 
 
 
-    <Dropdown>
+    <Dropdown alignRight>
       <Dropdown.Toggle variant="success" id="dropdown-responsive">
       {user? <Image class ='userlogin'   src={user.photoURL} style ={{height:'36px'}}roundedCircle  />:   <IconContext.Provider class ='userlogin'  value={{ color: "#d0cccc", className: "logo",size: '1.75em' }}>
         <FaUserCircle/>
