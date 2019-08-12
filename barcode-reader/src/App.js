@@ -4,7 +4,7 @@ import './App.css'
 import {
   Route,
   BrowserRouter as Router,
-
+  Switch
 } from "react-router-dom";
 import  {BrowserHistory}from 'react-router'
 import Home from "./Home";
@@ -52,8 +52,8 @@ const providers = {
 
 function mapStyles(styles) {
   return {
-
-    transform: `translateX(${styles.offset}%)`,
+    opacity: styles.opacity,
+       transform: `scale(${styles.scale})`,
   };
 }
 
@@ -69,15 +69,18 @@ function bounce(val) {
 const bounceTransition = {
   // start in a transparent, upscaled state
   atEnter: {
-offset:100
+    opacity: 0,
+        scale: 1.2,
   },
   // leave in a transparent, downscaled state
   atLeave: {
-  offset:-100
+    opacity: bounce(0),
+       scale: bounce(0.8),
   },
   // and rest at an opaque, normally-scaled state
   atActive: {
-  offset:0
+    opacity: bounce(1),
+       scale: bounce(1),
   },
 };
 
@@ -110,7 +113,7 @@ backClick(){
 
 
 
-<Navbar  className="Navbar"  variant="dark" fixed='top' expand="md" >
+<Navbar  className="Navbar"  variant="dark" sticky='top' expand="md" >
 <BurgerMenu/>
 
 <Navbar.Brand >
@@ -170,11 +173,10 @@ backClick(){
     </Dropdown>
 
 </Navbar>
-<br/><br/>
+
 <Offline>
 <OfflineBanner/>
 </Offline>
-
 
 
 

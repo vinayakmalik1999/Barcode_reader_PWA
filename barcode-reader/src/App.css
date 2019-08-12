@@ -69,14 +69,7 @@ size:
 
 
 }
-.route-wrapper {
-  position: relative;
-}
 
-.route-wrapper > div {
-  position: absolute;
-   width: 100%;
-}
 .navbar-brand{
 
 
